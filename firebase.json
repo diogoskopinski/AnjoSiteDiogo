@@ -1,0 +1,42 @@
+{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": "public",
+    "rewrites": [
+      {
+        "source": "/index",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/index/**",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/cadastro/**",
+        "destination": "/register.html"
+      },
+      {
+        "source": "/cadastro",
+        "destination": "/register.html"
+      },
+      {
+        "source": "/pontos",
+        "destination": "/pontos.html"
+      },
+      {
+        "source": "/parceiro",
+        "destination": "/parceiro.html"
+      },
+      {
+        "source": "/sobre",
+        "destination": "/sobre.html"
+      },
+      {
+        "source": "/contato",
+        "destination": "/contato.html"
+      }
+    ]
+  }
+}
