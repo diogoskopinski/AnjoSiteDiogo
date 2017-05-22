@@ -11,193 +11,222 @@
         <title>App Anjo - Home</title>
     </head>
     <body>
-
-        <nav class="white">
-            <div class="nav-wrapper">
-                <a data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons black-text">menu</i></a>
-                <ul class="logo-list">
-                    <li><a class="black-text" href="/index"><img class="menu-img" src="/img/logo_semfundo.png" /></a></li>
-                </ul>
-                <section>
-                    <ul id="nav-mobile" class="left hide-on-med-and-down">
-                        <li><a class="black-text" href="/index">Como Funciona</a></li>
-                        <li><a class="black-text" href="/pontos.html">Pontos Life</a></li>
-                        <li><a class="black-text" href="/parceiro">Seja um Parceiro</a></li>
-                        <li><a class="black-text" href="/sobre">Sobre Nós</a></li>
-                        <li><a class="black-text" href="/contato">Contato</a></li>
+        <header>
+            <nav class="menu-header">
+                <div class="nav-wrapper">
+                    <a data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons black-text">menu</i></a>
+                    <ul class="logo-list">
+                        <li><a href="/index"><img class="menu-img" src="/img/logo_semfundo.png" /></a></li>
                     </ul>
-                </section>
-                <section>
-                    <ul  class="right hide-on-med-and-down userMenu">
-                        <li><a class="userName black-text">App Anjo</a></li>
-                        <li><img src=""/><a class="black-text"><img class="menu-img" src="/img/assets/pontos-life.png"/></a></li>
-                        <li><a class="login-button black-text">Entrar</a></li>
-                    </ul>
-                </section>
+                    <section>
+                        <ul id="nav-mobile" class="left hide-on-med-and-down">
+                            <li><a class="app-black-text" href="/index">Como Funciona</a></li>
+                            <li><a class="app-black-text" href="/pontos">Pontos Life</a></li>
+                            <li><a class="app-black-text" href="/parceiro">Seja um Parceiro</a></li>
+                            <li><a class="app-black-text" href="/sobre">Sobre Nós</a></li>
+                            <li><a class="app-black-text" href="/contato">Contato</a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <ul  class="right hide-on-med-and-down userMenu">
+                            <li><a class="userName app-black-text">App Anjo</a></li>
+                            <li>
+                                <div class="userPoints app-black-text">-</div>
+                                <img src=""/> <img class="menu-img" src="/img/assets/pontos-life.png"/> 
+                            </li>
+                            <li><a class="login-button app-red-text">Entrar</a></li>
+                        </ul>
+                    </section>
 
-            </div>
-        </nav>
-		
+                </div>
+            </nav>
+            <ul id="slide-out" class="side-nav">
+                <li>
+                    <div class="userView">
+                        <div class="background">
+                            <img src="/img/assets/background.png">
+                        </div>
+                        <a id="userPhoto"><img class="circle" src="/img/logo.svg"></a>
+                        <a><span class="userName white-text name">App Anjo</span></a>
+                        <a><span class="userEmail white-text email">anjo@anjo.com</span></a>
+                    </div>
+                </li>
+                <li><a href="/index"><i class="material-icons">info</i>Como Funciona</a></li>
+                <li><a href="/pontos"><i class="material-icons">favorite</i>Pontos Life</a></li>
+                <li><a href="/parceiro"><i class="material-icons">loyalty</i>Seja um Parceiro</a></li>
+                <li><a href="/sobre"><i class="material-icons">dashboard</i>Sobre Nós</a></li>
+                <li><a href="/contato"><i class="material-icons">mail</i>Contato</a></li>
+                <li><a><i class="material-icons">input</i><span class="login-button">Entrar</span></a></li>
+            </ul>
+        </header>
+    <main>
 
-
-    <div id="container_principal_pontos" class="container_principal_pontos card-panel teal #e0e0e0 grey lighten-2">
-    <!-- #eeeeee grey lighten-3 -->
-        <div class="section no-pad-bot">
-            <div id="divContPontos" class="menu-container" >
+        <div id="container_principal_pontos" class="container_principal_pontos">
+        <!-- #eeeeee grey lighten-3 -->
+            <div id="divContPontos" class="card-panel teal #e0e0e0 grey lighten-2">
 
                 <div id="divConhecaPontos" class="row col s12 center-align">
                         <div class="row col s12">
                             <p class="header light">O app Anjo tem a sua própria moeda, chamada <strong>Life.</strong> </p>
                             <p class="light center-align">Para cada versão compartilhada com seus amigos há um número de pontos específicos, onde cada ponto é denominado <strong>LIFE.</strong> </p>
                             <p class="light center-align">Você pode trocar seus pontos ou doá-los no <strong>PROGRAMA DE FIDELIDADE ANJO.</strong></p>
-                        </div>
+                        </div>                    
+                </div>
+            </div>
 
-                        <div class="row col s6">
-                            <a href="#" id="conheca_button_pontos" class="btn-large waves-effect waves-light blue">CONHEÇA</a>
-                        </div>
+            <div id="divPontos2" class="teal #e0e0e0 grey lighten-2 row col s12">
+                <div id="img1" class="row col s6">
+                    <img id="imgLogoPontos" class="default-image-size" src="/img/assets/background_4.png"/>
+                </div>
+
+                <div id="divImgPontos2" class="row col s6">
+                    <a href="#" id="conheca_button_pontos" class="btn-large waves-effect waves-light blue">CONHEÇA</a>
                 </div>
             </div>
 
         </div>
-    </div>
-    
 
-    <div id="container-principal" class="center">
-        <div class="row s12 center">
-            <h4 class="header red-text">TROCAR PONTOS</h4>
-                <p id="pTrocarPontos" class="text-justfy margemEsqDir">No programa de fidelidade Anjo, seus pontos podem ser trocados de acordo com os produtos dos parceiros encontrados dentro da plataforma Ajo, conforme regulamento. </p>
-        </div>
+        
+        
 
-        <div id="divPrinc" class="row s12 center">
-            <div class="row col s6">
-                <img class="default-image-size" src="/img/assets/school.png"/>
-                    <p >Doar pontos para escolas públicas cadastradas no sistema.</p>
-            </div>
-            <div class="row col s6">
-                <img class="default-image-size" src="/img/assets/alimentacao.png"/>
-                    <p >Trocar pontos por crédito no cartão alimentação.</p>
-            </div>
-            
-            
-        </div>
-
-        <div id="divPrinc2" class="row s12 center">
-            <div id="div3" class="row col s6">
-                <img class="default-image-size" src="/img/assets/mobile.png"/>
-                    <p>Trocar pontos por Crédito no aparelho telefônico.</p>
+        <div id="container-principal" class="center">
+            <div class="row s12 center">
+                <h4 class="header red-text">TROCAR PONTOS</h4>
+                    <p id="pTrocarPontos" class="text-justfy margemEsqDir">No programa de fidelidade Anjo, seus pontos podem ser trocados de acordo com os produtos dos parceiros encontrados dentro da plataforma Ajo, conforme regulamento. </p>
             </div>
 
-            <div id="div4" class="row col s6">
-                <img class="default-image-size" src="/img/assets/credit-card-small.png"/>
-                    <p >Trocar pontos crédito no cartão de crédito pré-pago.</p>
-             </div>
-        </div>
-
-    </div>
-
-        <div id="container_principal_Detalhe" class="container-principal row center">
-             <div class="row col s12 m6">
-
-                <img id="imgPontosDetalhe" class="img_pontos_detalhe" src="/img/assets/pontos_detalhe.png"/>
-                    <p class="text-justfy">Quando você convidar um amigo e eles aceitar o convite, preencher o cadastro básico, escolher a versão gratuita, você receberá <strong>0,20 PONTOS LIFE.</strong></p>
-
-                    <p class="text-justfy">Para usar os pontos Life em benefícios próprios você terá que migrar para versão Life ou Premium. Se continuar na versão gratuíta, você poderá doar todos os seus pontos acumulados no período pra uma das escolas públicas cadastradas no sistema que poderão usá-los para comprar cestas-básicas, material esportivo e de informática.</p>
-             </div>
-             
-              <div id="Linha1Coluna2" class="row col s12 m6">
-                  <img id="pontosDetalheCasa" class="img_pontos_detalhe" src="/img/assets/pontos_detalhe_casa.png">
-             </div>
-        </div>
-
-
-        <footer class="page-footer white">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12 center">
-                        <img class="footer-logo" src="img/logo_semfundo.png">
-                    </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="black-text">O Anjo nas Redes Sociais!</h5>
-                        <ul>
-                            <li class="valign-wrapper">
-                                <a class="black-text text-lighten-3" href="#!">
-                                    <img class="social-icon" src="/img/social/png/facebook.png"/>
-                                    Facebook
-                                </a>
-                            </li>
-                            <li>
-                                <a class="black-text text-lighten-3" href="#!">
-                                    <img class="social-icon" src="/img/social/png/youtube.png"/>
-                                    YouTube
-                                </a>
-                            </li>
-                            <li>
-                                <a class="black-text text-lighten-3" href="#!">
-                                    <img class="social-icon" src="/img/social/png/twitter.png"/>
-                                    Twitter
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            <div id="divPrinc" class="row s12 center">
+                <div class="row col s6">
+                    <img class="default-image-size" src="/img/assets/school.png"/>
+                        <p >Doar pontos para escolas públicas cadastradas no sistema.</p>
                 </div>
-            </div>
-            <div class="footer-copyright">
-                <div class="container black-text">
-                    © 2017 Todos os direitos reservados à Anjo LTDA
+                <div class="row col s6">
+                    <img class="default-image-size" src="/img/assets/alimentacao.png"/>
+                        <p >Trocar pontos por crédito no cartão alimentação.</p>
                 </div>
+                
+                
             </div>
-        </footer>
 
-        <script type="text/javascript" src="/js/lib/jquery-3.2.0.min.js"></script>
-        <script type="text/javascript" src="/js/lib/materialize.min.js"></script>
-        <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-        <script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
-        <script type="text/javascript" src="/js/anjo.js"></script>
-        <script type="text/javascript" src="/js/loginEvents.js"></script>
-        <script type="text/javascript" src="/js/login.js"></script>
-        <script type="text/javascript" src="/js/home.js"></script>
+            <div id="divPrinc2" class="row s12 center">
+                <div id="div3" class="row col s6">
+                    <img class="default-image-size" src="/img/assets/mobile.png"/>
+                        <p>Trocar pontos por Crédito no aparelho telefônico.</p>
+                </div>
 
-        <div id="login-email-password-modal" class="modal">
-            <div class="modal-content">
-                <div class="section">
+                <div id="div4" class="row col s6">
+                    <img class="default-image-size" src="/img/assets/credit-card-small.png"/>
+                        <p >Trocar pontos crédito no cartão de crédito pré-pago.</p>
+                 </div>
+            </div>
+
+        </div>
+
+            <div id="container_principal_Detalhe" class="container-principal row center">
+                 <div class="row col s12 m6">
+
+                    <img id="imgPontosDetalhe" class="img_pontos_detalhe" src="/img/assets/pontos_detalhe.png"/>
+                        <p class="text-justfy">Quando você convidar um amigo e eles aceitar o convite, preencher o cadastro básico, escolher a versão gratuita, você receberá <strong>0,20 PONTOS LIFE.</strong></p>
+
+                        <p class="text-justfy">Para usar os pontos Life em benefícios próprios você terá que migrar para versão Life ou Premium. Se continuar na versão gratuíta, você poderá doar todos os seus pontos acumulados no período pra uma das escolas públicas cadastradas no sistema que poderão usá-los para comprar cestas-básicas, material esportivo e de informática.</p>
+                 </div>
+                 
+                  <div id="Linha1Coluna2" class="row col s12 m6">
+                      <img id="pontosDetalheCasa" class="img_pontos_detalhe" src="/img/assets/pontos_detalhe_casa.png">
+                 </div>
+            </div>
+
+
+            <footer class="page-footer white">
+                <div class="container">
                     <div class="row">
-                        <div class="col left s12 m6">
-                            <div class="input-field">
-                                <input id="login-email" type="email" class="validate">
-                                <label for="login-email">Usuário</label>
-                            </div>
-                            <div class="input-field">
-                                <input id="login-password" type="password" class="validate">
-                                <label for="login-password">Senha</label>
-                            </div>
+                        <div class="col l6 s12 center">
+                            <img class="footer-logo" src="img/logo_semfundo.png">
                         </div>
-                        <div class="col s12 m6">
-                            <div class="row center">
-                                <h6>Entrar usando:</h6>
-                            </div>
-                            <div class="row center">
-                                <a class="do-login-google">
-                                    <img class="social-icon" src="/img/social/png/googleplus.png"/>
-                                </a>
-                                <a class="do-login-facebook">
-                                    <img class="social-icon" src="/img/social/png/facebook.png"/>
-                                </a>
-                            </div>
-                            <div class="row center">
-                                <a href="/cadastro">Não tem uma conta? Faça seu cadastro!</a>
-                            </div>
+                        <div class="col l4 offset-l2 s12">
+                            <h5 class="black-text">O Anjo nas Redes Sociais!</h5>
+                            <ul>
+                                <li class="valign-wrapper">
+                                    <a class="black-text text-lighten-3" href="#!">
+                                        <img class="social-icon" src="/img/social/png/facebook.png"/>
+                                        Facebook
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="black-text text-lighten-3" href="#!">
+                                        <img class="social-icon" src="/img/social/png/youtube.png"/>
+                                        YouTube
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="black-text text-lighten-3" href="#!">
+                                        <img class="social-icon" src="/img/social/png/twitter.png"/>
+                                        Twitter
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+                <div class="footer-copyright">
+                    <div class="container black-text">
+                        © 2017 Todos os direitos reservados à Anjo LTDA
+                    </div>
+                </div>
+            </footer>
 
-                <div class="section">
-                    <div class="row right">
-                        <a class="do-close-modal waves-effect waves-light red btn">Cancelar</a>
-                        <a class="do-login-email-password waves-effect waves-light btn">Entrar</a>
+            <script type="text/javascript" src="/js/lib/jquery-3.2.0.min.js"></script>
+            <script type="text/javascript" src="/js/lib/materialize.min.js"></script>
+            <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+            <script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
+            <script type="text/javascript" src="/js/anjo.js"></script>
+            <script type="text/javascript" src="/js/loginEvents.js"></script>
+            <script type="text/javascript" src="/js/login.js"></script>
+            <script type="text/javascript" src="/js/home.js"></script>
+
+            <div id="login-email-password-modal" class="modal">
+                <div class="modal-content">
+                    <div class="section">
+                        <div class="row">
+                            <div class="col left s12 m6">
+                                <div class="input-field">
+                                    <input id="login-email" type="email" class="validate">
+                                    <label for="login-email">Usuário</label>
+                                </div>
+                                <div class="input-field">
+                                    <input id="login-password" type="password" class="validate">
+                                    <label for="login-password">Senha</label>
+                                </div>
+                            </div>
+                            <div class="col s12 m6">
+                                <div class="row center">
+                                    <h6>Entrar usando:</h6>
+                                </div>
+                                <div class="row center">
+                                    <a class="do-login-google">
+                                        <img class="social-icon" src="/img/social/png/googleplus.png"/>
+                                    </a>
+                                    <a class="do-login-facebook">
+                                        <img class="social-icon" src="/img/social/png/facebook.png"/>
+                                    </a>
+                                </div>
+                                <div class="row center">
+                                    <a href="/cadastro">Não tem uma conta? Faça seu cadastro!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="row right">
+                            <a class="do-close-modal waves-effect waves-light red btn">Cancelar</a>
+                            <a class="do-login-email-password waves-effect waves-light btn">Entrar</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+    </main>
 
     </body>
 </html>

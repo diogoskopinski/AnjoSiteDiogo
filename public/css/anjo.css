@@ -331,11 +331,13 @@ ul.logo-list {
 } */
 
 #divContPontos {
-    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .divConteudoPontos {
     margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .container_principal_pontos {
@@ -350,11 +352,31 @@ ul.logo-list {
 }
 
 .imgPontosPrimeira{
-    /* background-color: url(img/assets/background_3.png) no-repeat center ; */
-
      background-image: url(../img/assets/background_3.png) ;
-/*URL: url('caminho/imagem.gif')
-URL: url("caminho/imagem.gif") */
+}
 
-     /*public\img\assets */
+#divConhecaPontos {
+    margin-bottom: 0;
+}
+
+#divPontos2 {
+    margin-top: 0 !important;
+    padding-top: 0;
+    margin-left: 0;
+    padding-left: 0;
+    border: none;
+}
+
+#img1 {    
+    margin-left: 0;
+    padding-left: 0;
+    height: 0;
+}
+
+#imgLogoPontos {
+    margin-left: 0;
+}
+
+#divImgPontos2 {
+    margin-bottom: 0;
 }
