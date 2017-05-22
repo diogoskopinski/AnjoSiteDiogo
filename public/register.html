@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link type="text/css" rel="stylesheet" href="/css/material-icons.css"/>
+        <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="/css/anjo.css"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <title>App Anjo - Cadastro</title>
+    </head>
+    <body>
+
+        <nav class="blue lighten-1">
+			<div class="nav-wrapper">
+				<a data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+				<a>Anjo App</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/index">Home</a></li>
+					<li><a href="/caracteristicas">Características</a></li>
+					<li><a href="/galeria">Galeria</a></li>
+					<li><a href="/sobre">Sobre Nós</a></li>
+					<li><a href="/contato">Contato</a></li>
+					<li><a class="login-button">Entrar</a></li>
+				</ul>
+			</div>
+		</nav>
+		<ul id="slide-out" class="side-nav">
+			<li>
+				<div class="userView">
+					<div class="background">
+						<img src="/img/background-light-blue.jpg">
+					</div>
+					<a id="userPhoto"><img class="circle" src="/img/logo.svg"></a>
+					<a><span id="userName" class="white-text name">Anjo App</span></a>
+					<a><span id="userEmail" class="white-text email">anjo@anjo.com</span></a>
+				</div>
+			</li>
+			<li><a href="/index"><i class="material-icons">home</i>Home</a></li>
+			<li><a href="/caracteristicas"><i class="material-icons">home</i>Características</a></li>
+			<li><a href="/galeria"><i class="material-icons">photo_library</i>Galeria</a></li>
+			<li><a href="/sobre"><i class="material-icons">info</i>Sobre Nós</a></li>
+			<li><a href="/contato"><i class="material-icons">mail</i>Contato</a></li>
+			<li><a><i class="material-icons">input</i><span class="login-button">Entrar</span></a></li>
+		</ul>
+		
+        <div id="cadastro">
+            <div class="row">
+                <div class="col s12">
+                    <h3 class="header">Formulário de Cadastro</h3>
+                    <div class="card horizontal">      
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col left s12 m6">
+                                        <div class="input-field">
+                                            <input id="register-name" type="text" class="validate">
+                                            <label for="register-name">Nome</label>
+                                        </div>                                        
+                                        <div class="input-field">
+                                            <input id="register-email" type="email" class="validate">
+                                            <label for="register-email">Email</label>
+                                        </div>
+                                        <div class="input-field">
+                                            <input id="register-password" type="password" class="validate">
+                                            <label for="register-password">Senha</label>
+                                        </div>
+                                    </div>
+                                    <div class="col s12 m6">
+                                        <div class="row center">
+                                            <h6>Você também pode se registrar usando sua conta nas redes sociais:</h6>
+                                        </div>
+                                        <div class="row center">
+                                            <a class="do-registrer-google">
+                                                <img class="social-icon" src="/img/social/png/googleplus.png"/>
+                                            </a>
+                                            <a class="do-register-facebook">
+                                                <img class="social-icon" src="/img/social/png/facebook.png"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-action">
+                                <div class="right">
+                                    <a class="do-cancel waves-effect waves-light red btn">Cancelar</a>
+                                    <a class="do-register waves-effect waves-light btn">Cadastrar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="page-footer blue">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Ajude o Anjo a crescer!</h5>
+                        <p class="grey-text text-lighten-4">Compartilhe com seus amigos e ainda ganhe pontos!</p>
+                        <p class="grey-text text-lighten-4">Ao compartilhar o anjo com outras pessoas você está contribuindo com saúde de quem você gosta!</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">O Anjo nas Redes Sociais!</h5>
+                        <ul>
+                            <li class="valign-wrapper">
+                                <a class="grey-text text-lighten-3">
+                                    <img class="social-icon" src="/img/social/png/facebook.png"/>
+                                    Facebook
+                                </a>
+                            </li>
+                            <li>
+                                <a class="grey-text text-lighten-3">
+                                    <img class="social-icon" src="/img/social/png/youtube.png"/>
+                                    YouTube
+                                </a>
+                            </li>
+                            <li>
+                                <a class="grey-text text-lighten-3">
+                                    <img class="social-icon" src="/img/social/png/twitter.png"/>
+                                    Twitter
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2017 Todos os direitos reservados à Anjo LTDA
+                </div>
+            </div>
+        </footer>
+
+        <script type="text/javascript" src="/js/lib/jquery-3.2.0.min.js"></script>
+        <script type="text/javascript" src="/js/lib/materialize.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+        <script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
+        <script type="text/javascript" src="/js/anjo.js"></script>
+		<script type="text/javascript" src="/js/loginEvents.js"></script>
+        <script type="text/javascript" src="/js/login.js"></script>
+		<script type="text/javascript" src="/js/registerEvents.js"></script>
+        <script type="text/javascript" src="/js/register.js"></script>
+
+		<div id="login-email-password-modal" class="modal">
+			<div class="modal-content">
+				<div class="section">
+					<div class="row">
+						<div class="col left s12 m6">
+							<div class="input-field">
+								<input id="login-email" type="email" class="validate">
+								<label for="login-email">Usuário</label>
+							</div>
+							<div class="input-field">
+								<input id="login-password" type="password" class="validate">
+								<label for="login-password">Senha</label>
+							</div>
+						</div>
+						<div class="col s12 m6">
+							<div class="row center">
+								<h6>Entrar usando:</h6>
+							</div>
+							<div class="row center">
+								<a class="do-login-google">
+									<img class="social-icon" src="/img/social/png/googleplus.png"/>
+								</a>
+								<a class="do-login-facebook">
+									<img class="social-icon" src="/img/social/png/facebook.png"/>
+								</a>
+							</div>
+							<div class="row center">
+								<a href="/cadastro">Não tem uma conta? Faça seu cadastro!</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="section">
+					<div class="row right">
+						<a class="do-close-modal waves-effect waves-light red btn">Cancelar</a>
+						<a class="do-login-email-password waves-effect waves-light btn">Entrar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+    </body>
+</html>
