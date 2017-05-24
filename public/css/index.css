@@ -1,0 +1,12 @@
+@media (max-width:425px) {
+	.index-banner {
+		height: 520px;
+		background-position-x: -170px;
+    	background-size: 277% 100%;
+	}
+	
+	.default-image-size {
+		max-width: 30%;
+		height: auto;
+	}
+}

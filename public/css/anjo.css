@@ -22,11 +22,6 @@
     padding: 80px 0px 80px 0px;
 }
 
-.default-image-size {
-    max-width: 35%;
-    height: auto;
-}
-
 .google-play-badge {
     max-width: 80%;
     height: auto;
@@ -331,62 +326,14 @@ ul.logo-list {
 } */
 
 #divContPontos {
-    margin-bottom: 0;
-    margin-top: 0;
+    padding-bottom: 0;
 }
 
 .divConteudoPontos {
     margin-bottom: 0;
-    padding-bottom: 0;
 }
 
 .container_principal_pontos {
     margin-bottom: 0;
-    padding-bottom: 5%;
-    /* background-color: #e8e8e8; */
-}
-
-.margemEsqDir {
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
-.imgPontosPrimeira{
-     background-image: url(../img/assets/background_3.png) ;
-}
-
-#divConhecaPontos {
-    margin-bottom: 0;
-}
-
-#divPontos2 {
-    margin-top: 0 !important;
-    padding-top: 0;
-    margin-left: 0;
-    padding-left: 0;
-    border: none;
-}
-
-#divImgPontos_1 {
-        width: 19%;
-    min-width: 11%;
-    min-height: 5%;
-    height: auto !important;
-    max-width: 20%;
-    height: 8%;/
-    -o-background-size: 100%;
-    -khtml-background-size: 100%;
-    margin-left: 0;
-    p: 100% 100%;
-    padding-left: 0%;
-    margin-right: 25%;
-}
-
-#imgLogoPontos {
-    width: 100%;
-    height: 100%;
-}
-
-#divImgPontos2 {
-    margin-bottom: 0;
+    padding-bottom: 15%;
 }
