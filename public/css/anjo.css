@@ -367,14 +367,24 @@ ul.logo-list {
     border: none;
 }
 
-#img1 {    
+#divImgPontos_1 {
+        width: 19%;
+    min-width: 11%;
+    min-height: 5%;
+    height: auto !important;
+    max-width: 20%;
+    height: 8%;/
+    -o-background-size: 100%;
+    -khtml-background-size: 100%;
     margin-left: 0;
-    padding-left: 0;
-    height: 0;
+    p: 100% 100%;
+    padding-left: 0%;
+    margin-right: 25%;
 }
 
 #imgLogoPontos {
-    margin-left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 #divImgPontos2 {
