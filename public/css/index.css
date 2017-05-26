@@ -11,6 +11,20 @@
 	}
 }
 
+#divMenuContainer {
+    padding-right: 0;
+}
+
+#divTextoHomePrimeiro {
+    margin-left: 20%;
+    margin-right: 0;
+    padding: 0;
+}
+
+#pEducacao {
+    margin-bottom: 20%;
+}
+
 #pEspacoImagem{
 	width: auto;
     height: 125px;
@@ -21,5 +35,5 @@
 }
 
 #divImgLogo {
-    height: 180px;
+    height: 40px;
 }
