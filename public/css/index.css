@@ -1,7 +1,7 @@
 @media (max-width:425px) {
 	.index-banner {
 		height: 520px;
-		background-position-x: -170px;
+		background-position-x: -50px;
     	background-size: 277% 100%;
 	}
 	
@@ -9,4 +9,17 @@
 		max-width: 30%;
 		height: auto;
 	}
+}
+
+#pEspacoImagem{
+	width: auto;
+    height: 125px;
+}
+
+#footerLogo {
+	width: 40% !important;
+}
+
+#divImgLogo {
+    height: 180px;
 }

@@ -2,3 +2,11 @@
 	width: auto;
     height: 125px;
 }
+
+#footerLogo {
+	width: 40% !important;
+}
+
+#divImgLogo {
+    height: 180px;
+}

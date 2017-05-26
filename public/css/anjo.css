@@ -327,6 +327,9 @@ ul.logo-list {
 
 #divContPontos {
     padding-bottom: 0;
+    padding-top: 0;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .divConteudoPontos {
@@ -336,4 +339,14 @@ ul.logo-list {
 .container_principal_pontos {
     margin-bottom: 0;
     padding-bottom: 15%;
+}
+
+#container_principal_Detalhe {
+    margin-bottom: 0;
+    padding-bottom: 2%;
+}
+
+#container_principal_life {
+    margin-bottom: 0;
+    padding-bottom: 2%;
 }
