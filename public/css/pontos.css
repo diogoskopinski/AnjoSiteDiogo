@@ -1,0 +1,89 @@
+
+.img_pontos_detalhe {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+
+#divContPontos {
+    padding-bottom: 0;
+    padding-top: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.divConteudoPontos {
+    margin-bottom: 0;
+}
+
+.container_principal_pontos {
+    margin-bottom: 0;
+    padding-bottom: 15%;
+}
+
+#container_principal_pontos {
+    margin-top: 0;
+    padding-top: 7%;
+}
+
+#container_principal_pontos_troca {
+    margin-top: 15%;
+}
+
+#p_texto_troca {
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+#container_principal_Detalhe {
+    margin-bottom: 0;
+    padding-bottom: 2%;
+}
+
+#container_principal_life {
+    margin-bottom: 0;
+    padding-bottom: 2%;
+}
+
+#divLife_2 {
+    background: royalblue;
+    /* border-style: solid; */
+}
+
+#pontosDetalheCasa {
+    /* margin-top: 20%; */
+    /*margin-bottom: 20%; */
+}
+
+#pontosBeneficiosLife{
+    padding: 6%;
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
+
+#divPremium_1_cartao {
+    background: red;
+}
+
+#pontosCartaoAbaixo {
+    margin-top: 50%;
+    /*margin-bottom: 50%; */
+}
+
+#container_principal_premium {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#pTextoPremium {
+    background: darkred;
+    padding-left: 4%;
+    padding-right: 4%;
+    margin-bottom: 50%;
+    color: navajowhite;
+}
+
+.page-footer {
+    padding-top: 10% !important;
+}
+
