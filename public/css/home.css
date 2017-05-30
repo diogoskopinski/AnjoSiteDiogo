@@ -3,8 +3,8 @@
     height: 125px;
 }
 
-#footerLogo {
-	width: 40% !important;
+.footer-logo {
+	width: 30% !important;
 }
 
 #divImgLogo {
