@@ -87,3 +87,26 @@
     padding-top: 10% !important;
 }
 
+
+#divLife_1_filho {
+    border-color: blue;
+    border-style: solid;
+}
+
+#divLife_1_1_filho {
+    border-style: solid;
+    float: none;
+}
+
+#divLife_2 {
+    background: royalblue;
+    border-style: solid;
+    height: 450px;
+}
+
+#divLife_2_filho {
+    border-style: solid;
+    border-color: aliceblue;
+    margin-left: 24%;
+    margin-right: 20%;
+}
