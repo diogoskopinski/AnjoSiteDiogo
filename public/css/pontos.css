@@ -7,7 +7,7 @@
 
 #divContPontos {
     padding-bottom: 0;
-    padding-top: 0;
+    padding-top: 3%;
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -16,23 +16,39 @@
     margin-bottom: 0;
 }
 
+#divConteudoPontos {
+    padding: 0;
+    margin: 0;
+}
+
 .container_principal_pontos {
     margin-bottom: 0;
-    padding-bottom: 15%;
+    padding-bottom: 0%;
 }
 
 #container_principal_pontos {
     margin-top: 0;
-    padding-top: 7%;
+    padding-top: 0%;
 }
 
 #container_principal_pontos_troca {
-    margin-top: 15%;
+    margin-top: 8%;
+}
+
+#divTextoInicialPontos {
+    margin-bottom: 5%;
 }
 
 #p_texto_troca {
     padding-left: 4%;
     padding-right: 4%;
+}
+
+.divPrincipal {    
+    margin: 2%;
+    padding:0;
+    width: 75%;
+    margin-left: 12%;
 }
 
 #container_principal_Detalhe {
@@ -104,11 +120,16 @@
 }
 
 #divGratuito_2 {
-	background: darkseagreen;
+	/*background: darkseagreen; */
+    background: #31aa3a;
+    max-width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 #divLife_2 {
     background: royalblue;
+    height: 50%;
 }
 
 .div_2_filho {
@@ -120,6 +141,10 @@
 
 #divPremium_2 {
 	background: darkred;
+}
+
+#divPremium_2_filho {
+    margin-top: 15%;
 }
 
 #Linha1Coluna1 {
@@ -159,4 +184,12 @@
 
 .img_pontos_trocar_2 {
 	max-width: 40%;
+}
+
+.img_60 {
+    max-width: 60%;
+}
+
+.img_100 {
+    max-width: 100%;
 }
