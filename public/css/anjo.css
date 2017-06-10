@@ -23,7 +23,7 @@
 }
 
 .google-play-badge {
-    max-width: 80%;
+    max-width: 50%;
     height: auto;
 }
 
@@ -44,14 +44,13 @@
     display: block;
 }
 
-/*.footer-logo {
+.footer-logo {
     max-height: 190px;
     width: auto;
-} */
+}
 
 .text-justfy {
     text-align: justify;
-    padding: 2%;
 }
 
 .text-center {
@@ -313,3 +312,32 @@ ul.logo-list {
     padding: 25px 0;
 }
 
+
+.img_pontos_detalhe {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+
+/*.img_pontos_logo {
+    max-width: 60%;
+    height: auto;
+    width: 50%;
+} */
+
+#divContPontos {
+    padding-bottom: 0;
+}
+
+.divConteudoPontos {
+    margin-bottom: 0;
+}
+
+.container_principal_pontos {
+    margin-bottom: 0;
+    padding-bottom: 15%;
+}
+
+.img_20 {
+    max-width: 20%;
+}
