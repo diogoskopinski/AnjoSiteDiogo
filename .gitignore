@@ -57,3 +57,18 @@ typings/
 # dotenv environment variables file
 .env
 
+public/img/doacoes-star.svg
+public/img/doacoes-heart.svg
+public/css/doacoes.css
+public/css/contato.css
+backup_Video/videos.html
+backup_Video/pontos.html
+TesteSubir/testeSubirAmbiente.png
+public/js/sobre.js
+public/css/cadastro.css
+public/contato.html
+public/cadastro.html
+ErrorSubir.txt
+public/js/pontos.js
+public/js/contato.js
+portasRodandoFirebase.txt
