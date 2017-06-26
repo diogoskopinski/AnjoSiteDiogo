@@ -1,7 +1,4 @@
 {
-  "database": {
-    "rules": "database.rules.json"
-  },
   "hosting": {
     "public": "public",
     "rewrites": [
@@ -15,11 +12,11 @@
       },
       {
         "source": "/cadastro/**",
-        "destination": "/register.html"
+        "destination": "/cadastro.html"
       },
       {
         "source": "/cadastro",
-        "destination": "/register.html"
+        "destination": "/cadastro.html"
       },
       {
         "source": "/pontos",
@@ -36,6 +33,9 @@
       {
         "source": "/contato",
         "destination": "/contato.html"
+      },
+      {
+        "source": "/email", "function": "email"
       }
     ]
   }

@@ -3,25 +3,30 @@
     margin: 0 auto;
 }
 
+.default-image-size {
+    max-width: 40%;
+    height: auto;
+}  
+
 @media (max-width:425px) {
-	.index-banner {
-		height: 330px;
+    .index-banner {
+        height: 330px;
         background-size: 100% 100%;
-	}
-	
+    }
+
     .banner-text {
         margin-left: 20%;
     }
-    
-	.default-image-size {
-		max-width: 30%;
-		height: auto;
-	}    
+
+    .default-image-size {
+        max-width: 30%;
+        height: auto;
+    }    
 }
 
 @media (max-width:768px) {
-    
-    
+
+
     .hide-on-small {
         display: none !important;
     }
@@ -31,9 +36,20 @@
     .index-banner {
         height: 332px;
         background-size: 100% 100%;
-	}
-    
+    }
+
     .menu-container {
         padding: 76px;
+    }
+}
+
+@media (min-width:1050px) {
+    .index-banner {
+        height: 670px;
+        background-size: 100% 100%;
+    }
+
+    .menu-container {
+        padding: 150px;
     }
 }

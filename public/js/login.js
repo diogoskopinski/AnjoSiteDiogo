@@ -16,14 +16,14 @@ var login = (function(){
 		}
 	}, loginEvents.onError );
 
-	var doLoginWithFacebook = function(success, error){
+	var doLoginWithFacebook = function(){
 		var facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
 		firebase.auth().signInWithPopup(facebookAuthProvider);
 	};
 
 	var doLoginWithGoogle = function(){
 		var googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-		firebase.auth().signInWithPopup(googleAuthProvider); 
+		firebase.auth().signInWithPopup(googleAuthProvider);
 	};
 
 	return {

@@ -12,6 +12,10 @@ var loginEvents = (function(){
         
 		$('.login-button').html('Sair');
 		$('#login-email-password-modal').modal('close');
+        
+        if(register.socialWithUid){
+            register.registerIfUidExistsOnUrl(user.uid);
+        }
 	};
 
 	var onError = function(){
