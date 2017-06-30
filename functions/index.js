@@ -1,5 +1,5 @@
 var functions = require('firebase-functions');
-/*const cors = require('cors')({origin: true});
+const cors = require('cors')({origin: true});
 
 // Email config
 var email		= 'paulo.sbx3@gmail.com';
@@ -38,7 +38,7 @@ exports.email = functions.https.onRequest((req, res) => {
 		}
 	});
 });	 
-*/
+
 
 exports.increasePointsWhenRegisterPayment = functions.database.ref('pagamentos/{user}/{payment}').onWrite(event => {
 	var dados = event.data;
