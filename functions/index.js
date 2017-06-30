@@ -1,5 +1,5 @@
 var functions = require('firebase-functions');
-/*const cors = require('cors')({origin: true});
+const cors = require('cors')({origin: true});
 
 // Email config
 var email		= 'paulo.sbx3@gmail.com';
@@ -30,7 +30,8 @@ exports.email = functions.https.onRequest((req, res) => {
 		} else {
 			console.log(req.body.name, req.body.email);
 			send({
-				to : ['paulo.sb@live.com','rangeldiretorcomercial@gmail.com','diogo.skopinski@gmail.com','danilopanta_@hotmail.com'],
+				//to : ['paulo.sb@live.com','rangeldiretorcomercial@gmail.com','diogo.skopinski@gmail.com','danilopanta_@hotmail.com'],
+				to : ['diogo.skopinski@gmail.com'],
 				subject : req.body.subject,
 				html : '<b>' + req.body.name + '</b><br>' + req.body.body
 			});
@@ -38,7 +39,7 @@ exports.email = functions.https.onRequest((req, res) => {
 		}
 	});
 });	 
-*/
+
 
 exports.increasePointsWhenRegisterPayment = functions.database.ref('pagamentos/{user}/{payment}').onWrite(event => {
 	var dados = event.data;
