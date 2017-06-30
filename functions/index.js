@@ -30,7 +30,8 @@ exports.email = functions.https.onRequest((req, res) => {
 		} else {
 			console.log(req.body.name, req.body.email);
 			send({
-				to : ['paulo.sb@live.com','rangeldiretorcomercial@gmail.com','diogo.skopinski@gmail.com','danilopanta_@hotmail.com'],
+				//to : ['paulo.sb@live.com','rangeldiretorcomercial@gmail.com','diogo.skopinski@gmail.com','danilopanta_@hotmail.com'],
+				to : ['diogo.skopinski@gmail.com'],
 				subject : req.body.subject,
 				html : '<b>' + req.body.name + '</b><br>' + req.body.body
 			});
