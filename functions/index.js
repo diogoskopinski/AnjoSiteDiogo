@@ -1,4 +1,7 @@
 var functions = require('firebase-functions');
+const admin = require('firebase-admin');
+admin.initializeApp(functions.config().firebase);
+
 const cors = require('cors')({origin: true});
 
 // Email config
@@ -30,7 +33,6 @@ exports.email = functions.https.onRequest((req, res) => {
 		} else {
 			console.log(req.body.name, req.body.email);
 			send({
-				//to : ['paulo.sb@live.com','rangeldiretorcomercial@gmail.com','diogo.skopinski@gmail.com','danilopanta_@hotmail.com'],
 				to : ['diogo.skopinski@gmail.com'],
 				subject : req.body.subject,
 				html : '<b>' + req.body.name + '</b><br>' + req.body.body
@@ -40,14 +42,13 @@ exports.email = functions.https.onRequest((req, res) => {
 	});
 });	 
 
-
 exports.increasePointsWhenRegisterPayment = functions.database.ref('pagamentos/{user}/{payment}').onWrite(event => {
 	var dados = event.data;
-	var convidadosReference = firebase.database().ref('convidados/' + event.params.user );	
+	var convidadosReference = admin.database().ref('convidados/' + event.params.user );	
 	convidadosReference.on('value', function(convidado){
 		if(convidado){
 			var uid_convidante = convidado.val().uid_convidante;
-			var pontosReference = firebase.database().ref('pontos/' + uid_convidante);
+			var pontosReference = admin.database().ref('pontos/' + uid_convidante);
 			pontosReference.on('value', function(pontos){
 				pontos.val().pontos += dados.pontos;
 				pontosReference.set({pontos : pontos});
@@ -72,14 +73,14 @@ exports.increasePointsWhenRegisterVersion = functions.database.ref('users/{user}
 
 		if(pontos){
 			var userUid = event.params.user;
-			var convidadosReference = firebase.database().ref('convidados/' + userUid );
+			var convidadosReference = admin.database().ref('convidados/' + userUid );
 			var inviterUid;
 			if(convidadosReference){
 				convidadosReference.once('value').then(function(convidado){
 					inviterUid = convidado.uid_convidante;
 				});
 
-				var pontosReference = firebase.database().ref('pontos/' + inviterUid);
+				var pontosReference = admin.database().ref('pontos/' + inviterUid);
 				pontosReference.once('value',function(snapshot){
 					pontos += snapshot.val().pontos; 
 				});
