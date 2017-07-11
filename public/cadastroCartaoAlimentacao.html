@@ -5,13 +5,17 @@
         <link type="text/css" rel="stylesheet" href="/css/material-icons.css"/>
         <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="/css/anjo.css"/>
-        <link type="text/css" rel="stylesheet" href="/css/cadastro.css"/>
+        <!-- <link type="text/css" rel="stylesheet" href="/css/cadastro.css"/> -->
 
+<!--        <script src="js/bootstrap.min.js"> </script> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
         <title>App Anjo - Cadastro Cartão Alimentação</title>
     </head>
     <body>
+
+<script src="js/lib/jquery-3.2.0.min.js"></script>
+
         <header>
             <nav class="menu-header">
                 <div class="nav-wrapper">
@@ -61,6 +65,26 @@
         
         <main class="container-principal">
           <div class="row">
+            <form>
+                <div class="form-group">
+                    <label for="email"> Email: </label>
+                    <!--placeholder="Email"-->
+                    <input type="email" class="form-control" id="email" placeholder="diogo.skopinski@gmail.com"> 
+                </div>
+
+                <div class="form-group">
+                    <label for="senha"> Email: </label>
+                    <!-- placeholder="Senha" -->
+                    <input type="password" class="form-control" id="senha" placeholder="Teste2017"> 
+                </div>
+
+                <button type="button" id="btnLogin" class="btn btn-default"> ACESSAR </button>
+                <button type="button" id="btnSair" class="btn btn-default" style="display: none"> SAIR </button>
+                
+            </form>
+
+
+<!--
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s6">
@@ -74,8 +98,25 @@
                   <input id="icon_telephone" type="tel" class="validate">
                   <label for="icon_telephone">Telefone</label>
                 </div>
+
+                <div class="form-group">
+                    <label for="exxampleInputFile"> File input </label>
+                    <input type="file" id="exxampleInputFile"> 
+                        <p class="help-block"> Example block-level help text here. </p>
+                </div>
+
+                <div class="ckeckbox">
+                    <label>
+                        <input type="ckeckbox"> Check me out
+                    </label>
+                </div>
+
+
               </div>
+
+              <button type="submit" class="btn btn-default"> Enviar </button>
             </form> 
+            -->
           </div>
         
 
@@ -162,6 +203,110 @@
                 </div>
             </div>
         </div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCC7uDq8p2qqH6tatr3Nye5ksbIpYuV-sM",
+    authDomain: "anjosite-65d1e.firebaseapp.com",
+    databaseURL: "https://anjosite-65d1e.firebaseio.com",
+    projectId: "anjosite-65d1e",
+    storageBucket: "",
+    messagingSenderId: "939261382842"
+  };
+
+  firebase.initializeApp(config);
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        // [END_EXCLUDE]
+        if (user) {
+            console.log('Houve uma autenticação');
+
+          // User is signed in.
+          var displayName = user.displayName;
+          var email = user.email;
+          var emailVerified = user.emailVerified;
+          var photoURL = user.photoURL;
+          var isAnonymous = user.isAnonymous;
+          var uid = user.uid;
+          var providerData = user.providerData;
+          // [START_EXCLUDE]
+          
+          /*document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
+          document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+          document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  '); */
+
+          if (!emailVerified) {
+            //document.getElementById('quickstart-verify-email').disabled = false;
+            console.log('Ok autenticação,  emailVerified: ' + emailVerified);
+            alert('Ok autenticação.');
+          }
+
+          $("body").append('<div class="alert alert-info" role="alert"> Autenticado ! ' + user.email + '</div');
+
+          //$("#btnSair, #btnGmail, #frmGrupos").css("display", "block");
+          $("#btnSair").css("display", "block");
+
+          // [END_EXCLUDE]
+        } else {
+          // User is signed out.
+          // [START_EXCLUDE]
+          /*document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
+          document.getElementById('quickstart-sign-in').textContent = 'Sign in';
+          document.getElementById('quickstart-account-details').textContent = 'null'; */
+          // [END_EXCLUDE]
+        }
+        
+        // [START_EXCLUDE silent]
+        //document.getElementById('quickstart-sign-in').disabled = false;
+        // [END_EXCLUDE]
+      });
+
+
+  $("#btnLogin").on("click", function(){
+        console.log('vai fazer login L_33');
+
+        var email = $('#email').val();
+        var senha = $('#senha').val();
+
+        firebase.auth().signInWithEmailAndPassword(email, senha).catch(function(error) {
+            console.log('Falha na autenticação');
+            console.log('error : '+ error);
+
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // [START_EXCLUDE]
+            if (errorCode === 'auth/wrong-password') {
+                alert('Wrong password.');
+            } else {
+                alert(errorMessage);
+            }
+
+            console.log(error);
+            //document.getElementById('quickstart-sign-in').disabled = false;
+            // [END_EXCLUDE]
+        });
+
+
+  });
+
+  $("#btnSair").on("click", function(){
+        console.log('vai fazer sair L_106');
+
+        //finalizar sessão
+        firebase.auth().signOut();
+
+        //Esconde o botao sair
+        $("#btnSair").css("display", "none");
+
+
+  });
+
+</script>
 
     </body>
 </html>
