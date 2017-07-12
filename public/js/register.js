@@ -52,48 +52,5 @@ $(document).ready(function(){
         login.doLoginWithFacebook(register.checkSocialLoginWithUid);
     });
 	
-//	var $ = require("jquery");
-
-	//Testes Diogo	
-	$("#showFormPagSeguro").on("click", function(){
-		listar();	
-	});
-	
-	$("#saveFormPagSeguro").on("click", function(){
-		var key = firebase.database().ref().push().key;	
-		console.log('key cadastro: ' + key);
-
-		var pagSeguroCadastro = {
-			uid: key,
-			NomeCompleto: 	$("#NomeCompleto").val(),
-			Telefone: 	  	$("#Telefone").val(),
-			NomeMae:		$("#NomeMae").val()
-		};
-		
-		var updates = {};
-		updates["pagSeguroDados" + "/" + key] = pagSeguroCadastro;
-		
-		firebase.database().ref().update(updates);
-	
-		alert("Registo salvo" );
-		
-		//listar();
-		
-	});
-	
-	function listar(){
-	
-		$.get("https://ead-crud.firebaseio.com/clientes.json", function(json){
-			var table = $("#table");
-			$.each(json, function(i, e){
-				var html = [];
-				html.push("<tr>");
-				html.push("  <td>" + e.uid + "</td>");
-				html.push("  <td>" + e.nome + "</td>");
-				html.push("</tr>");
-				table.append(html.join(""));
-			});
-		});
-	};	
 	  
 });

@@ -61,6 +61,12 @@
         ".read": "$user_id == auth.uid"
       }
     },
+    "pagSeguroDados": {
+      "$user_id": {
+        ".write": "$user_id == auth.uid",
+        ".read": "auth != null"
+      }
+    },
     "taco": {
       ".write": false,
       ".read": "auth != null",
