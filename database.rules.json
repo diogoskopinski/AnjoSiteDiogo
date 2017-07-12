@@ -62,10 +62,8 @@
       }
     },
     "pagSeguroDados": {
-      "$user_id": {
-        ".write": "$user_id == auth.uid",
-        ".read": "auth != null"
-      }
+        ".write": true,
+        ".read"	: true
     },
     "taco": {
       ".write": false,
