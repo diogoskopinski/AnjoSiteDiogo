@@ -1,0 +1,37 @@
+.row {
+    margin-bottom: 8px;
+}
+
+.titulo-page-cartao {
+    font-size: 28px; 
+    color: #0b6705;
+} 
+
+.legenda-txt {
+    font-size: 12px; 
+    color: #666; 
+    position: relative; 
+    bottom: 30px;
+}
+ 
+.link-cep {
+    cursor: pointer;
+}
+
+.btn-confirmar{
+    background: #6aae41;
+}
+
+.btn-confirmar:hover {
+    background: #38651d;
+}
+
+.dados-pessoal label {
+    font-size: 1rem;
+}
+
+@media only screen and (min-width: 0) {
+    .dados-pessoal {
+        margin-bottom: 25px;
+    }
+}

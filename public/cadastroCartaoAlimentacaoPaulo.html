@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link type="text/css" rel="stylesheet" href="/css/material-icons.css"/>
+        <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="/css/anjo.css"/>
+        <link type="text/css" rel="stylesheet" href="/css/cadastro_cartao.css"/>
+        <!-- <link type="text/css" rel="stylesheet" href="/css/cadastro.css"/> -->
+
+<!--        <script src="js/bootstrap.min.js"> </script> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <title>App Anjo - Cadastro Cartão Alimentação</title>
+    </head>
+    <body>
+
+<script src="js/lib/jquery-3.2.0.min.js"></script>
+
+        <header>
+            <nav class="menu-header">
+                <div class="nav-wrapper">
+                    <a data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons black-text">menu</i></a>
+                    <ul class="logo-list">
+                        <li><a href="/index"><img class="menu-img" src="/img/logo_semfundo.png" /></a></li>
+                    </ul>
+                    <section>
+                        <ul id="nav-mobile" class="left hide-on-med-and-down">
+                            <li><a class="app-black-text" href="/index">Como Funciona</a></li>
+                            <li><a class="app-black-text" href="/pontos">Pontos Life</a></li>
+                            <li><a class="app-black-text" href="/sobre">Sobre Nós</a></li>
+                            <li><a class="app-black-text" href="/contato">Entre em Contato</a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <ul  class="right hide-on-med-and-down userMenu">
+                            <li><a class="userName app-black-text">App Anjo</a></li>
+                            <li>
+                                <div class="userPoints app-black-text">-</div>
+                                <img src=""/> <img class="menu-img" src="/img/assets/pontos-life.png"/> 
+                            </li>
+                            <li><a class="login-button app-red-text">Entrar</a></li>
+                        </ul>
+                    </section>
+
+                </div>
+            </nav>
+            <ul id="slide-out" class="side-nav">
+                <li>
+                    <div class="userView">
+                        <div class="background">
+                            <img src="/img/assets/background.png">
+                        </div>
+                        <a id="userPhoto"><img class="circle" src="/img/logo.svg"></a>
+                        <a><span class="userName white-text name">App Anjo</span></a>
+                        <a><span class="userEmail white-text email">anjo@anjo.com</span></a>
+                    </div>
+                </li>
+                <li><a href="/index"><i class="material-icons">info</i>Como Funciona</a></li>
+                <li><a href="/pontos"><i class="material-icons">favorite</i>Pontos Life</a></li>
+                <li><a href="/sobre"><i class="material-icons">dashboard</i>Sobre Nós</a></li>
+                <li><a href="/contato"><i class="material-icons">mail</i>Entre em Contato</a></li>
+                <li><a><i class="material-icons">input</i><span class="login-button">Entrar</span></a></li>
+            </ul>
+        </header>
+        
+        <main class="container-principal">
+          <div class="row">
+            
+            <!--
+            <form>
+                <div class="form-group">
+                    <label for="email"> E-mail: </label>
+                    <input type="email" class="form-control" id="email" placeholder="diogo.skopinski@gmail.com"> 
+                </div>
+
+                <div class="form-group">
+                    <label for="senha"> Senha: </label>
+                    <input type="password" class="form-control" id="senha" placeholder="Teste2017"> 
+                </div>
+
+                <button type="button" id="btnLogin" class="btn btn-default"> ACESSAR </button>
+                <button type="button" id="btnSair" class="btn btn-default" style="display: none"> SAIR </button>               
+            </form>
+            -->
+
+
+            <form class="col s12" id="formCadastroPagSeguro">
+             <div class="container">
+                <div class="row">
+                    <form class="col s12">
+                        <h4 class="titulo-page-cartao">Dados Pessoais</h4>
+
+                        <div class="row">
+                            <div class="input-field col l8 s12">
+                                <input type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col l8 s12">
+                                <input type="email" class="validate">
+                                <label for="confirm_email">Confirme o e-mail</label>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="input-field col  l6 s12">
+                                <input type="password" class="validate">
+                                <label for="password">Senha</label>
+                            </div>
+                        </div>
+                        <p class="legenda-txt">
+                            - Use entre 8 a 16 caracteres: <br> -Utilize ao menos duas opções: letra maiúscula, letra minúscula,
+                            número ou caractere especial.
+                        </p>
+                        <div class="row">
+                            <div class="input-field col l6 s12">
+                                <input type="password" class="validate">
+                                <label for="confirm-password">Confirme sua senha</label>
+                            </div>
+                        </div>
+                        <h4 class="titulo-page-cartao">Dados cadastrais</h4>
+
+                        <div class="row">
+                            <div class="input-field col l8 s12">
+                                <input type="text" class="validate">
+                                <label for="">Nome completo</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col dados-pessoal l4 s12">
+                                <label for="">Sexo: </label>
+                                <p>
+                                    <input name="group1" type="radio" id="teste" />
+                                    <label for="teste">Maculino</label>
+                                    <input name="group1" type="radio" id="teste2" />
+                                    <label for="teste2">Feminino</label>
+                                </p>
+                            </div>
+                            <div class="col categoria-sexo l2 s6">
+                                <label for="">Data de Nascimento</label>
+                                <input id="dataNascimento" type="text">
+                            </div>
+                            <div class="dados-pessoal col s12">
+                                <label for="">Declare ser maior que 18 anos:</label>                        
+                                    <input name="group1" type="radio" id="teste" />
+                                    <label for="teste">Sim</label>
+                                    <input name="group1" type="radio" id="teste2" />
+                                    <label for="teste2">Não</label>                        
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col l4 s12">
+                                <input id="txtCpf" type="text" class="validate">
+                                <label  for="">CPF</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col l8 s12">
+                                <input type="text" class="validate">
+                                <label for="">Nome completo da mãe</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col l4 s10">
+                                <input id="txtTelResidencial" type="text" class="validate">
+                                <label for="">Telefone residencial</label>
+                            </div>
+                            <div class="input-field col l4 s10">
+                                <input id="txtTelCelular" type="text" class="validate">
+                                <label for="">Telefone celular</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col l4 s12">
+                                <input id="txtCep" type="text" class="validate">
+                                <label for="">CEP</label>
+                            </div>
+                        </div>
+                        <span class="legenda-txt">Não sabe o seu CEP <a href="#" class="link-cep">Pesquisar</a></span>
+                        <div class="row">
+                            <div class="input-field col l8 s12">
+                                <input type="text" class="validate">
+                                <label for="">Endereço</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col l2 s6">
+                                <input type="text" class="validate">
+                                <label for="">Número</label>
+                            </div>
+                            <div class="input-field col l4 s6">
+                                <input type="text" class="validate">
+                                <label for="">Estado</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col l4 s12">
+                                <input type="text" class="validate">
+                                <label for="">Cidade</label>
+                            </div>
+
+                            <div class="input-field col l4 s12">
+                                <input type="text" class="validate">
+                                <label for="">Bairro</label>
+                            </div>
+                            <div class="input-field col l6 s12">
+                                <input type="text" class="validate" placeholder="Ex.: Casa, apartamento, Bloco">
+                                <label for="">Completo</label>
+                            </div>
+                        </div>
+                        <a class="waves-effect waves-light btn-large btn-confirmar">Confirmar</a>
+                    </form>
+                </div>
+            </div>
+              <button id="saveFormPagSeguro" type="submit" class="btn btn-default"> Salvar </button>
+              <!-- <button id="showFormPagSeguro" class="btn btn-default"> Ver dados PagSeguro </button> -->
+              <input type="button" class="btn btn-default" name="showFormPagSeguro" id="showFormPagSeguro" value="Ver dados PagSeguro">
+
+                <p>
+                    <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                    <label for="filled-in-box">Li e estou de acordo com os termos do 
+                        <a target="_blank" href="https://pagseguro.uol.com.br/sobre/contrato-de-servicos">Contrato do PagSeguro</a></label>
+                </p>
+
+            <table id="tblDadosPagSeguro" class="striped">
+                <tr class='tblCabecarioPagSeguro'> <td>Id </td> <td> Nome </td> <td> Nome Mãe </td> </tr>
+              </table>
+
+            </form> 
+            
+
+
+          </div>
+        
+
+        </main>
+            
+
+        <script type="text/javascript" src="/js/lib/jquery-3.2.0.min.js"></script>
+        <script type="text/javascript" src="/js/lib/materialize.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+        <script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
+        <script type="text/javascript" src="/js/anjo.js"></script>
+        <script type="text/javascript" src="/js/loginEvents.js"></script>
+        <script type="text/javascript" src="/js/login.js"></script>
+        <script type="text/javascript" src="/js/registerEvents.js"></script>
+        <script type="text/javascript" src="/js/register.js"></script>
+        <script type="text/javascript" src="/js/pagSeguroCadastro.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
+        <script type="text/javascript" src="/js/cadastroCartao.js"></script>
+
+
+
+    </body>
+</html>

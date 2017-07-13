@@ -1,6 +1,7 @@
 $(document).ready(function(){
     anjo.commonEvents();
 
+
 	//usuario = firebase.auth().currentUser;
 	//console.log('L_7_usuario.uid: ' + usuario.uid);
 
@@ -8,8 +9,8 @@ $(document).ready(function(){
 
 		//Testes Diogo	
 		$("#showFormPagSeguro").on("click", function(){
+			$('.trInfPagSeguro').remove();
 			console.log('chegou aqui L_6bbb p listar');
-			
 			listar();
 		});
 	//} 
@@ -49,28 +50,59 @@ Autenticação	{ "provider": "google", "uid": "yLVzQhTJmENBbM5lX5fkgjN9zCi2" } *
 	
 		alert("Registo salvo" );
 		
-		//listar();
+		$('.trInfPagSeguro').remove();
+		listar(key);
 		
 	});
 	
-	function listar(){
+	function listar(key){
+		console.log('key listar: ' + key);
 	
 		//databaseURL: "https://anjosite-65d1e.firebaseio.com",
-		$.get("https://anjosite-65d1e.firebaseio.com/pagSeguroDados.json", function(json){
-			var table = $("#tblDadosPagSeguro");
-			$.each(json, function(i, e){
-				var html = [];
-				html.push("<tr>");
-				//html.push("  <td>" + e.uid + "</td>");
-				html.push("  <td>" + i + "</td>");
-				html.push("  <td>" + e.NomeCompleto + "</td>");
-				html.push("  <td>" + e.NomeCompletoMae + "</td>");
-				html.push("</tr>");
-				table.append(html.join(""));
-			});
+		if(key) {
+			$.get("https://anjosite-65d1e.firebaseio.com/pagSeguroDados.json?orderBy=\"$value\"&startAt=\"key\"", function(json){
+				var table = $("#tblDadosPagSeguro");
+				console.log('Cheogu no filtro aaa key: ' + key);
 
-			console.log('table: ' + table);
-		});
+				$.each(json, function(i, e){
+					console.log('i: ' + i + ' - e: '+e);
+					var html = [];
+					html.push("<tr class='trInfPagSeguro'>");
+					//html.push("  <td>" + e.uid + "</td>");
+					html.push("  <td>" + i + "</td>");
+					html.push("  <td>" + e.NomeCompleto + "</td>");
+					html.push("  <td>" + e.NomeCompletoMae + "</td>");
+					html.push("</tr>");
+					table.append(html.join(""));
+				});
+
+				console.log('table: ' + table);
+			});
+		} else {
+			$.get("https://anjosite-65d1e.firebaseio.com/pagSeguroDados.json", function(json){
+				var table = $("#tblDadosPagSeguro");
+
+				if(key) {
+					i = key;
+					console.log('key: ' + key + ' i: '+i);
+				}
+
+				$.each(json, function(i, e){
+					console.log('i: ' + i + ' - e: '+e);
+					var html = [];
+					html.push("<tr class='trInfPagSeguro'>");
+					//html.push("  <td>" + e.uid + "</td>");
+					html.push("  <td>" + i + "</td>");
+					html.push("  <td>" + e.NomeCompleto + "</td>");
+					html.push("  <td>" + e.NomeCompletoMae + "</td>");
+					html.push("</tr>");
+					table.append(html.join(""));
+				});
+
+				console.log('table: ' + table);
+			});
+		}
+		
 
 		console.log('chegou aqui L_55 p listar');
 
