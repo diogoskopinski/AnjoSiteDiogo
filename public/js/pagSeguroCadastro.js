@@ -1,21 +1,37 @@
 $(document).ready(function(){
     anjo.commonEvents();
 
-	//Testes Diogo	
-	/*$("#showFormPagSeguro").on("click", function(){
-		listar();	
-	});
-	*/
+	//usuario = firebase.auth().currentUser;
+	//console.log('L_7_usuario.uid: ' + usuario.uid);
+
+	//if(usuario.uid == 'WfSo7LZgDEVtPPUx0c6cNHM7DLJ2') {
+
+		//Testes Diogo	
+		$("#showFormPagSeguro").on("click", function(){
+			console.log('chegou aqui L_6bbb p listar');
+			
+			listar();
+		});
+	//} 
+	
+	/*validaListagem();
+
+	function validaListagem(){
+		var usuario = firebase.auth().currentUser;
+		console.log('usuario: ' + usuario);
+
+		//var idUsuario = usuario.uid;
+		//console.log('L_7_usuario.uid: ' + idUsuario);
+
+	}*/
 	
 	$("#saveFormPagSeguro").on("click", function(){
 		var key = firebase.database().ref().push().key;	
 		console.log('key cadastro: ' + key);
 
 		var pagSeguroCadastro = {
-			key: {
-				NomeCompleto: 		$("#NomeCompleto").val(),
-				NomeCompletoMae:	$("#NomeMae").val()
-			}
+			NomeCompleto: 		$("#NomeCompleto").val(),
+			NomeCompletoMae:	$("#NomeMae").val()
 		};
 		
 
@@ -37,20 +53,28 @@ Autenticação	{ "provider": "google", "uid": "yLVzQhTJmENBbM5lX5fkgjN9zCi2" } *
 		
 	});
 	
-	/*function listar(){
+	function listar(){
 	
-		$.get("https://ead-crud.firebaseio.com/clientes.json", function(json){
-			var table = $("#table");
+		//databaseURL: "https://anjosite-65d1e.firebaseio.com",
+		$.get("https://anjosite-65d1e.firebaseio.com/pagSeguroDados.json", function(json){
+			var table = $("#tblDadosPagSeguro");
 			$.each(json, function(i, e){
 				var html = [];
 				html.push("<tr>");
-				html.push("  <td>" + e.uid + "</td>");
-				html.push("  <td>" + e.nome + "</td>");
+				//html.push("  <td>" + e.uid + "</td>");
+				html.push("  <td>" + i + "</td>");
+				html.push("  <td>" + e.NomeCompleto + "</td>");
+				html.push("  <td>" + e.NomeCompletoMae + "</td>");
 				html.push("</tr>");
 				table.append(html.join(""));
 			});
+
+			console.log('table: ' + table);
 		});
+
+		console.log('chegou aqui L_55 p listar');
+
 	};
-	*/
+	
 	  
 });
