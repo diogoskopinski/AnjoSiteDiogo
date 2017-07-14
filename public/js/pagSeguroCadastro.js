@@ -1,8 +1,9 @@
+
 $(document).ready(function(){
     //anjo.commonEvents();
 
-var userId = firebase.auth().currentUser.uid;
-	console.log('userId: ' + userId);
+//var userId = firebase.auth().currentUser.uid;
+	//console.log('userId: ' + userId);
 	usuario = firebase.auth().currentUser;
 	console.log('usuario: ' + usuario);
 	//console.log('L_7_usuario.uid: ' + usuario.uid);
@@ -28,32 +29,73 @@ var userId = firebase.auth().currentUser.uid;
 
 	}*/
 	
-	$("#saveFormPagSeguro").on("click", function(){
-		var key = firebase.database().ref().push().key;	
-		console.log('key cadastro: ' + key);
-
-		var pagSeguroCadastro = {
-			NomeCompleto: 		$("#NomeCompleto").val(),
-			NomeCompletoMae:	$("#NomeMae").val()
-		};
-		
-
-		console.log('pagSeguroCadastro_L_23: ' + pagSeguroCadastro);
-/*Local	/
-Dados	{ "pagSeguroDados": { "yLVzQhTJmENBbM5lX5fkgjN9zCi2": { "NomeCompleto": "Teste Diogo", "NomeMae": "Teste Mae 13:49" } } }
-Autenticação	{ "provider": "google", "uid": "yLVzQhTJmENBbM5lX5fkgjN9zCi2" } */
-
-		var updates = {};
-		updates["pagSeguroDados" + "/" + key] = pagSeguroCadastro;
-
-		console.log('pagSeguroCadastro_L_31: ' + updates["pagSeguroDados" + "/" + key]);
-		
-		firebase.database().ref().update(updates);
 	
-		alert("Registo salvo" );
+//var a = validarDadosCadastro();
+//console.log('a: ' + a);
+
+
+
+	$("#saveFormPagSeguro").on("click", function(){
+		if(validarDadosCadastro()) {
+
+			var key = firebase.database().ref().push().key;	
+			console.log('key cadastro: ' + key);
+
+			var strSexo = null;
+			if($('#sexoM').prop('checked')) {
+				strSexo = 'Masculino';
+			} else if($('#sexoF').prop('checked')) {
+				strSexo = 'Feminino';
+			}
+
+			var bolMaior = null;
+			if($('#maiorS').prop('checked')) {
+				bolMaior = true;
+			} else if($('#maiorN').prop('checked')) {
+				bolMaior = false;
+			}
+
+			var pagSeguroCadastro = {
+				email: 				$("#txtEmail").val(),
+				senha: 				$("#txtSenha").val(),
+				nomeCompleto: 		$("#txtNomeCompleto").val(),
+				sexo: 				strSexo,
+				dataNascimento: 	$("#dtDataNascimento").val(),
+				bolMaior:			bolMaior,
+				cpf:				$("#txtCpf").val(),
+				nomeCompletoMae:	$("#nomeCompletoMae").val(),
+				telefoneResidencial:$("#txtTelResidencial").val(),
+				telefoneCelular:   	$("#txtTelCelular").val(),
+				cep:  				$("#txtCep").val(),
+				endereco:  			$("#txtEndereco").val(),
+				numero:  			$("#numNumero").val(),
+				estado:  			$("#txtEstado").val(),
+				cidade:  			$("#txtCidade").val(),
+				bairro:  			$("#txtBairro").val(),
+				complemento:  		$("#txtComplemento").val(),
+				dataCadastro:  		formataDataAtual()
+			};
+			
+
+			console.log('pagSeguroCadastro_L_23: ' + pagSeguroCadastro);
+	/*Local	/
+	Dados	{ "pagSeguroDados": { "yLVzQhTJmENBbM5lX5fkgjN9zCi2": { "NomeCompleto": "Teste Diogo", "NomeMae": "Teste Mae 13:49" } } }
+	Autenticação	{ "provider": "google", "uid": "yLVzQhTJmENBbM5lX5fkgjN9zCi2" } */
+
+			var updates = {};
+			updates["pagSeguroDados" + "/" + key] = pagSeguroCadastro;
+
+			console.log('pagSeguroCadastro_L_31: ' + updates["pagSeguroDados" + "/" + key]);
+			
+			firebase.database().ref().update(updates);
 		
-		$('.trInfPagSeguro').remove();
-		listar(key);
+			alert("Registo salvo" );
+			
+			$('.trInfPagSeguro').remove();
+			listar(key);
+		} else {
+			return false;
+		}
 		
 	});
 	
