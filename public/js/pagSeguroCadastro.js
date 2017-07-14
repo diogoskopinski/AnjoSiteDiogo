@@ -1,8 +1,10 @@
 $(document).ready(function(){
-    anjo.commonEvents();
+    //anjo.commonEvents();
 
-
-	//usuario = firebase.auth().currentUser;
+var userId = firebase.auth().currentUser.uid;
+	console.log('userId: ' + userId);
+	usuario = firebase.auth().currentUser;
+	console.log('usuario: ' + usuario);
 	//console.log('L_7_usuario.uid: ' + usuario.uid);
 
 	//if(usuario.uid == 'WfSo7LZgDEVtPPUx0c6cNHM7DLJ2') {
@@ -65,7 +67,7 @@ Autenticação	{ "provider": "google", "uid": "yLVzQhTJmENBbM5lX5fkgjN9zCi2" } *
 				console.log('Cheogu no filtro aaa key: ' + key);
 
 				$.each(json, function(i, e){
-					console.log('i: ' + i + ' - e: '+e);
+					//console.log('i: ' + i + ' - e: '+e);
 					var html = [];
 					html.push("<tr class='trInfPagSeguro'>");
 					//html.push("  <td>" + e.uid + "</td>");

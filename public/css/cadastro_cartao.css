@@ -35,3 +35,7 @@
         margin-bottom: 25px;
     }
 }
+
+#divInfDadosPagSeguro, #showFormPagSeguro {
+    visibility: hidden;
+}

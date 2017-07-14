@@ -67,25 +67,7 @@
         <main class="container-principal">
           <div class="row">
             
-            <!--
-            <form>
-                <div class="form-group">
-                    <label for="email"> E-mail: </label>
-                    <input type="email" class="form-control" id="email" placeholder="diogo.skopinski@gmail.com"> 
-                </div>
-
-                <div class="form-group">
-                    <label for="senha"> Senha: </label>
-                    <input type="password" class="form-control" id="senha" placeholder="Teste2017"> 
-                </div>
-
-                <button type="button" id="btnLogin" class="btn btn-default"> ACESSAR </button>
-                <button type="button" id="btnSair" class="btn btn-default" style="display: none"> SAIR </button>               
-            </form>
-            -->
-
-
-            <form class="col s12" id="formCadastroPagSeguro">
+             <form class="col s12" id="formCadastroPagSeguro">
              <div class="container">
                 <div class="row">
                     <form class="col s12">
@@ -211,30 +193,30 @@
                                 <label for="">Completo</label>
                             </div>
                         </div>
-                        <a class="waves-effect waves-light btn-large btn-confirmar">Confirmar</a>
+
+                        <div class="row">
+                            <p>
+                                <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                                <label for="filled-in-box">Li e estou de acordo com os termos do 
+                                    <a target="_blank" href="https://pagseguro.uol.com.br/sobre/contrato-de-servicos">Contrato do PagSeguro</a></label>
+                            </p>
+                        </div>
+
+                        <button id="saveFormPagSeguro" type="submit" class="waves-effect waves-light btn-large btn-confirmar"> Confirmar </button>
+
+                        <input type="button" class="btn btn-default" name="showFormPagSeguro" id="showFormPagSeguro" value="Ver dados PagSeguro">
+                        <!-- <a class="waves-effect waves-light btn-large btn-confirmar">Confirmar</a> -->
                     </form>
                 </div>
             </div>
-              <button id="saveFormPagSeguro" type="submit" class="btn btn-default"> Salvar </button>
-              <!-- <button id="showFormPagSeguro" class="btn btn-default"> Ver dados PagSeguro </button> -->
-              <input type="button" class="btn btn-default" name="showFormPagSeguro" id="showFormPagSeguro" value="Ver dados PagSeguro">
 
-                <p>
-                    <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-                    <label for="filled-in-box">Li e estou de acordo com os termos do 
-                        <a target="_blank" href="https://pagseguro.uol.com.br/sobre/contrato-de-servicos">Contrato do PagSeguro</a></label>
-                </p>
-
-            <table id="tblDadosPagSeguro" class="striped">
-                <tr class='tblCabecarioPagSeguro'> <td>Id </td> <td> Nome </td> <td> Nome Mãe </td> </tr>
-              </table>
-
-            </form> 
-            
-
-
-          </div>
-        
+            <div id="divInfDadosPagSeguro" class="container">
+                <div class="row">
+                    <table id="tblDadosPagSeguro" class="striped">
+                        <tr class='tblCabecarioPagSeguro'> <td>Id </td> <td> Nome </td> <td> Nome Mãe </td> </tr>
+                    </table>
+                </div>
+            </div>
 
         </main>
             
