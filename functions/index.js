@@ -31,9 +31,8 @@ exports.email = functions.https.onRequest((req, res) => {
 		} else if(req.body.body.length <= 0){
 			res.status(400).send('Mensagem não definida!');
 		} else {
-			console.log(req.body.name, req.body.email);
 			send({
-				to : ['diogo.skopinski@gmail.com'],
+				to : ['paulo.sb@live.com','rangeldiretorcomercial@gmail.com','diogo.skopinski@gmail.com','danilopanta_@hotmail.com'],
 				subject : req.body.subject,
 				html : '<b>' + req.body.name + '</b><br>' + req.body.body
 			});
@@ -43,52 +42,60 @@ exports.email = functions.https.onRequest((req, res) => {
 });	 
 
 exports.increasePointsWhenRegisterPayment = functions.database.ref('pagamentos/{user}/{payment}').onWrite(event => {
-	var dados = event.data;
-	var convidadosReference = admin.database().ref('convidados/' + event.params.user );	
-	convidadosReference.on('value', function(convidado){
-		if(convidado){
-			var uid_convidante = convidado.val().uid_convidante;
-			var pontosReference = admin.database().ref('pontos/' + uid_convidante);
-			pontosReference.on('value', function(pontos){
-				pontos.val().pontos += dados.pontos;
-				pontosReference.set({pontos : pontos});
-			});	
-		}
-	});
-});
-
-exports.increasePointsWhenRegisterVersion = functions.database.ref('users/{user}').onWrite(event => {
-	var dados = event.data;
-	var version = dados.child('versao');
-	if(version.changed()){
-
-		var pontos;
-		switch (version.val()) {
-			case "basica":
-				pontos = 0.20;
+	var pagamento = event.data;
+	var user = event.params.user;
+	increasePoints(pagamento.valor, user);
+	var convidante = getConvidante(user);
+	if(convidante){
+		switch (pagamento.versao) {
+			case "life":
+				pontos = 1;
+				break;
+			case "premium":
+				pontos = 2;
 				break;
 			default:
 				pontos = false;
-							 }
+		}
+		increasePoints(pontos, convidante);
+	}
+});
 
-		if(pontos){
-			var userUid = event.params.user;
-			var convidadosReference = admin.database().ref('convidados/' + userUid );
-			var inviterUid;
-			if(convidadosReference){
+exports.increasePointsWhenRegisterBasicVersion = functions.database.ref('users/{user}').onWrite(event => {
+	var dados = event.data;
+	var version = dados.child('versao');
+	var user = event.params.user;
+	var convidadosReference = admin.database().ref('convidados/' + user);
+	convidadosReference.once('value').then(function(convidado){
+		registerInviteList(convidado.val().uid_convidante, user);
+	});
+	
+	if(version.changed() && convidadosReference){
+		switch (version.val()) {
+			case "basica":
+				var pontos = 0.20;
 				convidadosReference.once('value').then(function(convidado){
-					inviterUid = convidado.uid_convidante;
+					var convidante = convidado.val().uid_convidante;
+					increasePoints(pontos, convidante);
 				});
-
-				var pontosReference = admin.database().ref('pontos/' + inviterUid);
-				pontosReference.once('value',function(snapshot){
-					pontos += snapshot.val().pontos; 
-				});
-
-				pontosReference.update({
-					pontos: pontos
-				});
-			}
+				break;
+			default:
+				break;
 		}
 	}
 });
+
+var registerInviteList = function(convidante, user){
+	admin.database().ref('users/' + user).once('value').then(function(snapshot){
+		var convitesReference = admin.database().ref("convites/" + convidante + "/" + user).set({
+			nome_convidado : snapshot.val().nome
+		});
+	});
+}
+
+var increasePoints = function(pontos, id){
+	var pontosReference = admin.database().ref('pontos/' + id);
+	pontosReference.once('value',function(snapshot){
+		snapshot.val().pontos += pontos;
+	});
+};

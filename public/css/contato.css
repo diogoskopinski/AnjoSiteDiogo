@@ -1,0 +1,8 @@
+textarea:focus {
+    outline: none;
+	border-color: #26a69a;
+}
+
+label[for=corpo].active {
+	color: #26a69a !important;
+}

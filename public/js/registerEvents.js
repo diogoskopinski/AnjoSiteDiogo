@@ -35,8 +35,9 @@ var registerEvents = (function(){
 			default:
 				title = 'OPS, ALGO INESPERADO';
 				message = 'Houve algo inesperado.';
-						  }
-		alert( title + "\n\n" + message );
+				break;
+			}
+		Materialize.toast(title + "\n\n" + message,4000,'');
 	}
 
 	return {

@@ -15,6 +15,9 @@ var loginEvents = (function(){
         
         if(register.socialWithUid){
             register.registerIfUidExistsOnUrl(user.uid);
+			Materialize.toast('Cadastro realizado com sucesso, seja bem vindo ao App Anjo!' ,4000,'',function(){
+				window.location.href = "/index";
+			});
         }
 	};
 

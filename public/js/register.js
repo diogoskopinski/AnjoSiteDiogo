@@ -20,7 +20,7 @@ var register = (function(){
                     uid_convidante : uid
                 });	
             }			
-        }
+        } 
     };
 
     var socialWithUid = false;
@@ -51,6 +51,4 @@ $(document).ready(function(){
         register.socialWithUid = true;
         login.doLoginWithFacebook(register.checkSocialLoginWithUid);
     });
-	
-	  
 });
