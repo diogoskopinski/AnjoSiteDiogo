@@ -15,10 +15,11 @@ var login = (function(){
 			loginEvents.onLogout();
 		}
 
-		if(use.uid = 'WfSo7LZgDEVtPPUx0c6cNHM7DLJ2') {
+		/*console.log('user.uid_login.js: ' + user);
+		if(user = 'WfSo7LZgDEVtPPUx0c6cNHM7DLJ2') {
 			$('#divInfDadosPagSeguro, #showFormPagSeguro').css({visibility : "visibility"});
 			coonsole.log('mostra botao usuario admin');
-		}
+		}*/
 	}, loginEvents.onError );
 
 	var doLoginWithFacebook = function(){

@@ -1,22 +1,48 @@
-
+var idUsuario = null;
 $(document).ready(function(){
-    //anjo.commonEvents();
+    anjo.commonEvents();
 
-//var userId = firebase.auth().currentUser.uid;
-	//console.log('userId: ' + userId);
-	usuario = firebase.auth().currentUser;
-	console.log('usuario: ' + usuario);
-	//console.log('L_7_usuario.uid: ' + usuario.uid);
+	firebase.auth().onAuthStateChanged(function(user) {
+	  	if (user) {
+		    // User is signed in.
+		    
+		    console.log('a_uid_L_10: ' + user.uid);
+		    idUsuario = user.uid;
 
-	//if(usuario.uid == 'WfSo7LZgDEVtPPUx0c6cNHM7DLJ2') {
+		    console.log('a_L_12: ' + idUsuario);
 
-		//Testes Diogo	
-		$("#showFormPagSeguro").on("click", function(){
-			$('.trInfPagSeguro').remove();
-			console.log('chegou aqui L_6bbb p listar');
-			listar();
-		});
-	//} 
+		    if(idUsuario == 'WfSo7LZgDEVtPPUx0c6cNHM7DLJ2'){
+		    	console.log('é igual admin');
+		    	$('#divInfDadosPagSeguro, #showFormPagSeguro').css('visibility', 'visible');
+				coonsole.log('mostra botao usuario admin');
+		    }
+
+		    /*var name, email, photoUrl, uid;
+			if (user != null) {
+				name = user.displayName;
+				email = user.email;
+				photoUrl = user.photoURL;
+				uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+				               // this value to authenticate with your backend server, if
+				               // you have one. Use User.getToken() instead.
+		        console.log('name: ' + name + '  - email: ' +  email + ' photoUrl: ' +photoUrl);
+		        console.log('uid: ' + uid);
+			} */
+
+	  	} else {
+	    	// No user is signed in.
+	    	console.log('b_L_18: ' + user);
+	    	alert('Necessário logar no site!');
+	    	return false;
+	  	}
+	});
+
+	//Testes Diogo	
+	$("#showFormPagSeguro").on("click", function(){
+		$('.trInfPagSeguro').remove();
+		console.log('chegou aqui L_6bbb p listar');
+		listar();
+	});
 	
 	/*validaListagem();
 
@@ -110,12 +136,36 @@ $(document).ready(function(){
 
 				$.each(json, function(i, e){
 					//console.log('i: ' + i + ' - e: '+e);
+
+					var bolMaior = null;
+					if(e.bolMaior) {
+						bolMaior = 'Sim';
+					} else if(e.bolMaior == false) {
+						bolMaior = 'Não';
+					}
+
 					var html = [];
 					html.push("<tr class='trInfPagSeguro'>");
 					//html.push("  <td>" + e.uid + "</td>");
 					html.push("  <td>" + i + "</td>");
-					html.push("  <td>" + e.NomeCompleto + "</td>");
-					html.push("  <td>" + e.NomeCompletoMae + "</td>");
+					html.push("  <td>" + e.nomeCompleto + "</td>");
+					html.push("  <td>" + e.nomeCompletoMae + "</td>");
+					html.push("  <td>" + e.sexo + "</td>");
+					html.push("  <td>" + e.cpf + "</td>");
+					html.push("  <td>" + e.telefoneResidencial + "</td>");
+					html.push("  <td>" + e.telefoneCelular + "</td>");
+					html.push("  <td>" + e.cidade + "</td>");
+					html.push("  <td>" + e.estado + "</td>");
+					html.push("  <td>" + e.endereco + "</td>");
+					html.push("  <td>" + e.numero + "</td>");
+					html.push("  <td>" + e.complemento + "</td>");
+					html.push("  <td>" + e.bairro + "</td>");
+					html.push("  <td>" + e.cep + "</td>");
+					html.push("  <td>" + e.dataNascimento + "</td>");
+					html.push("  <td>" + bolMaior + "</td>");
+					html.push("  <td>" + e.email + "</td>");
+					html.push("  <td>" + e.senha + "</td>");
+					html.push("  <td>" + e.dataCadastro + "</td>");
 					html.push("</tr>");
 					table.append(html.join(""));
 				});
@@ -133,12 +183,36 @@ $(document).ready(function(){
 
 				$.each(json, function(i, e){
 					console.log('i: ' + i + ' - e: '+e);
+
+					var bolMaior = null;
+					if(e.bolMaior) {
+						bolMaior = 'Sim';
+					} else if(e.bolMaior == false) {
+						bolMaior = 'Não';
+					}
+
 					var html = [];
 					html.push("<tr class='trInfPagSeguro'>");
 					//html.push("  <td>" + e.uid + "</td>");
 					html.push("  <td>" + i + "</td>");
-					html.push("  <td>" + e.NomeCompleto + "</td>");
-					html.push("  <td>" + e.NomeCompletoMae + "</td>");
+					html.push("  <td>" + e.nomeCompleto + "</td>");
+					html.push("  <td>" + e.nomeCompletoMae + "</td>");
+					html.push("  <td>" + e.sexo + "</td>");
+					html.push("  <td>" + e.cpf + "</td>");
+					html.push("  <td>" + e.telefoneResidencial + "</td>");
+					html.push("  <td>" + e.telefoneCelular + "</td>");
+					html.push("  <td>" + e.cidade + "</td>");
+					html.push("  <td>" + e.estado + "</td>");
+					html.push("  <td>" + e.endereco + "</td>");
+					html.push("  <td>" + e.numero + "</td>");
+					html.push("  <td>" + e.complemento + "</td>");
+					html.push("  <td>" + e.bairro + "</td>");
+					html.push("  <td>" + e.cep + "</td>");
+					html.push("  <td>" + e.dataNascimento + "</td>");
+					html.push("  <td>" + bolMaior + "</td>");
+					html.push("  <td>" + e.email + "</td>");
+					html.push("  <td>" + e.senha + "</td>");
+					html.push("  <td>" + e.dataCadastro + "</td>");
 					html.push("</tr>");
 					table.append(html.join(""));
 				});
