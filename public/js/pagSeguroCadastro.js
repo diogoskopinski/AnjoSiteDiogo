@@ -11,11 +11,23 @@ $(document).ready(function(){
 
 		    console.log('a_L_12: ' + idUsuario);
 
-		    if(idUsuario == 'WfSo7LZgDEVtPPUx0c6cNHM7DLJ2'){
+		    if(idUsuario == 'WfSo7LZgDEVtPPUx0c6cNHM7DLJ2' || idUsuario == 'yLVzQhTJmENBbM5lX5fkgjN9zCi2'){
 		    	console.log('é igual admin');
 		    	$('#divInfDadosPagSeguro, #showFormPagSeguro').css('visibility', 'visible');
-				coonsole.log('mostra botao usuario admin');
+				console.log('mostra botao usuario admin');
 		    }
+
+		    database.child("people/" + idUsuario).on('value', function(snapshot){
+		    	if(!snapshot.exists()){
+		    		alert('Sem dados');
+		    		console.log('sem dados L_23');
+		    	} else {
+		    		var snp = snapshot.val();
+		    		for(var i in snp) {
+		    			console.log('i: ' + i + ' snp[i]: ' + snp[i]);
+		    		}
+		    	}
+		    });
 
 		    /*var name, email, photoUrl, uid;
 			if (user != null) {
@@ -32,7 +44,8 @@ $(document).ready(function(){
 	  	} else {
 	    	// No user is signed in.
 	    	console.log('b_L_18: ' + user);
-	    	alert('Necessário logar no site!');
+	    	alert('É necessário o usuário logar no site!');
+	    	window.location.href = 'pontos.html';
 	    	return false;
 	  	}
 	});
