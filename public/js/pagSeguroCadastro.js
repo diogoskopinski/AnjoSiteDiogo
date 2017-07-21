@@ -17,17 +17,37 @@ $(document).ready(function(){
 				console.log('mostra botao usuario admin');
 		    }
 
-		    database.child("people/" + idUsuario).on('value', function(snapshot){
-		    	if(!snapshot.exists()){
-		    		alert('Sem dados');
-		    		console.log('sem dados L_23');
-		    	} else {
-		    		var snp = snapshot.val();
-		    		for(var i in snp) {
-		    			console.log('i: ' + i + ' snp[i]: ' + snp[i]);
-		    		}
-		    	}
-		    });
+/*		    var pontosReference = firebase.database().ref('pontos/' + user.uid );
+                        
+	        pontosReference.on('value', function(snapshot){
+	            $('.userPoints').html(snapshot.val().pontos);
+	        }); */
+
+			var peopleReference = firebase.database().ref('people/' + idUsuario );
+                        
+	        peopleReference.on('value', function(snapshot){
+	        	var snp = snapshot.val();
+	    		for(var i in snp) {
+	    			console.log('i: ' + i + ' snp[i]: ' + snp[i]);
+	    			if(i == 'fullname') {
+	    				$("#txtNomeCompleto").val(snp[i]);
+	    			}
+
+	    			if(i == 'sexo') {
+	    				if(snp[i] == 'homem'){
+	    					$('#sexoM').attr('checked', true);
+	    				} else {
+	    					$('#sexoF').attr('checked', true);
+						}
+	    			}
+
+	    			if(i == 'bairro') {
+	    				$("#txtBairro").val(snp[i]);
+	    			}
+	    			
+	    		}
+	        });
+
 
 		    /*var name, email, photoUrl, uid;
 			if (user != null) {

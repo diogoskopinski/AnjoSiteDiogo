@@ -1,5 +1,5 @@
 var anjo = (function(){
-    var config = {
+    /*var config = {
         apiKey: "AIzaSyCJEV7cgGJ8wLPKXw0WEIFbvemKwnQTMQI",
         authDomain: "appanjo-dbb06.firebaseapp.com",
         databaseURL: "https://appanjo-dbb06.firebaseio.com",
@@ -7,17 +7,17 @@ var anjo = (function(){
         storageBucket: "appanjo-dbb06.appspot.com",
         messagingSenderId: "784789781173"
     };
-    
+    */
 
 	
-	/*var config = {
+	var config = {
 		apiKey: "AIzaSyCC7uDq8p2qqH6tatr3Nye5ksbIpYuV-sM",
 		authDomain: "anjosite-65d1e.firebaseapp.com",
 		databaseURL: "https://anjosite-65d1e.firebaseio.com",
 		projectId: "anjosite-65d1e",
 		storageBucket: "",
 		messagingSenderId: "939261382842"
-	}; */
+	};
 	
     firebase.initializeApp(config);
 
