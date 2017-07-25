@@ -5,9 +5,12 @@ $(document).ready(function(){
 	firebase.auth().onAuthStateChanged(function(user) {
 	  	if (user) {
 		    // User is signed in.
-		    
-		    console.log('a_uid_L_10: ' + user.uid);
 		    idUsuario = user.uid;
+
+		     if(user.email != '') {
+				$("#txtEmail").val(user.email);
+				$("#txtEmail").focus();
+			}
 
 		    console.log('a_L_12: ' + idUsuario);
 
@@ -28,8 +31,9 @@ $(document).ready(function(){
 	        peopleReference.on('value', function(snapshot){
 	        	var snp = snapshot.val();
 	    		for(var i in snp) {
-	    			console.log('i: ' + i + ' snp[i]: ' + snp[i]);
+	    			//console.log('i: ' + i + ' snp[i]: ' + snp[i]);
 	    			if(i == 'fullname') {
+	    				$("#txtNomeCompleto").focus();
 	    				$("#txtNomeCompleto").val(snp[i]);
 	    			}
 
@@ -42,9 +46,75 @@ $(document).ready(function(){
 	    			}
 
 	    			if(i == 'bairro') {
+	    				$("#txtBairro").focus();
 	    				$("#txtBairro").val(snp[i]);
 	    			}
-	    			
+
+	    			if(i == 'nascimento') {
+	    				$("#dtDataNascimento").focus();
+	    				var data = snp[i];
+	    				var dataFormatada = data.substr(8,2) + '/' + data.substr(5,2) + '/' +data.substr(0,4)
+	    				$("#dtDataNascimento").val(dataFormatada);
+	    			}
+
+	    			if(i == 'cpf') {
+	    				$("#txtCpf").focus();
+	    				$("#txtCpf").val(snp[i]);
+	    				$("#txtCpf").mask('999.999.999-99');
+	    			}
+
+	    			if(i == 'ddd') {
+						$('#txtTelCelular').val(snp[i]);
+	    			}
+
+	    			if(i == 'telefone') {
+	    				$('#txtTelCelular').focus();
+						$('#txtTelCelular').val($('#txtTelCelular').val() + snp[i]);
+						$('#txtTelCelular').mask('(99) 99999-9999');//Celular
+	    			}
+					
+					if(i == 'cep') {
+	    				$('#txtCep').focus();
+						$('#txtCep').val(snp[i]);
+						$('#txtCep').mask('99999-999'); //CEP 
+	    			}
+
+	    			if(i == 'rua') {
+	    				$('#txtEndereco').focus();
+						$('#txtEndereco').val(snp[i]);
+	    			}
+
+	    			if(i == 'numero') {
+	    				$('#numNumero').focus();
+						$('#numNumero').val(snp[i]);
+	    			}
+
+	    			if(i == 'estado') {
+	    				var numEstado = snp[i];
+	    				var estadoReference = firebase.database().ref('estados/' );
+
+	    				estadoReference.on('value', function(snapshot){
+		        			var snpE = snapshot.val();
+		    				for(var j in snpE) {
+		    					for(var k in snpE[j]) {
+			    					if(snpE[j][k].id_estado == numEstado){
+			    						$('#txtEstado').focus();
+			    						$('#txtEstado').val(snpE[j][k].nome_estado);
+			    					}
+		    					}
+		    				}
+	    				});
+	    			}
+
+	    			if(i == 'cidade') {
+	    				$('#txtCidade').focus();
+						$('#txtCidade').val(snp[i]);
+	    			}
+
+	    			if(i == 'complemento') {
+	    				$('#txtComplemento').focus();
+						$('#txtComplemento').val(snp[i]);
+	    			}
 	    		}
 	        });
 
