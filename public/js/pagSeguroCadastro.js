@@ -14,11 +14,27 @@ $(document).ready(function(){
 
 		    console.log('a_L_12: ' + idUsuario);
 
-		    if(idUsuario == 'WfSo7LZgDEVtPPUx0c6cNHM7DLJ2' || idUsuario == 'yLVzQhTJmENBbM5lX5fkgjN9zCi2'){
+/*		    if(idUsuario == 'WfSo7LZgDEVtPPUx0c6cNHM7DLJ2' || idUsuario == 'yLVzQhTJmENBbM5lX5fkgjN9zCi2'){
 		    	console.log('é igual admin');
 		    	$('#divInfDadosPagSeguro, #showFormPagSeguro').css('visibility', 'visible');
 				console.log('mostra botao usuario admin');
-		    }
+		    } */
+
+
+			var usersReference = firebase.database().ref('users/' + idUsuario);
+
+			usersReference.on('value', function(snapshot){
+    			var snpU = snapshot.val();
+				for(var u in snpU) {
+					if(u == 'tipo_usuario' && (snpU[u] == 'A' || snpU[u] == 'G')) {
+						console.log('é igual admin ou gerente: ' + snpU[u]);
+		    			$('#divInfDadosPagSeguro, #showFormPagSeguro').css('visibility', 'visible');
+						console.log('mostra botao usuario admin ou gerente');
+					}
+
+				}
+			});
+
 
 /*		    var pontosReference = firebase.database().ref('pontos/' + user.uid );
                         
@@ -247,30 +263,31 @@ $(document).ready(function(){
 						bolMaior = 'Não';
 					}
 
+
 					var html = [];
-					html.push("<tr class='trInfPagSeguro'>");
-					//html.push("  <td>" + e.uid + "</td>");
-					html.push("  <td>" + i + "</td>");
-					html.push("  <td>" + e.nomeCompleto + "</td>");
-					html.push("  <td>" + e.nomeCompletoMae + "</td>");
-					html.push("  <td>" + e.sexo + "</td>");
-					html.push("  <td>" + e.cpf + "</td>");
-					html.push("  <td>" + e.telefoneResidencial + "</td>");
-					html.push("  <td>" + e.telefoneCelular + "</td>");
-					html.push("  <td>" + e.cidade + "</td>");
-					html.push("  <td>" + e.estado + "</td>");
-					html.push("  <td>" + e.endereco + "</td>");
-					html.push("  <td>" + e.numero + "</td>");
-					html.push("  <td>" + e.complemento + "</td>");
-					html.push("  <td>" + e.bairro + "</td>");
-					html.push("  <td>" + e.cep + "</td>");
-					html.push("  <td>" + e.dataNascimento + "</td>");
-					html.push("  <td>" + bolMaior + "</td>");
-					html.push("  <td>" + e.email + "</td>");
-					html.push("  <td>" + e.senha + "</td>");
-					html.push("  <td>" + e.dataCadastro + "</td>");
-					html.push("</tr>");
-					table.append(html.join(""));
+					//html.push("<tr class='trInfPagSeguro'>");
+					//html.push("<th>");
+					$('#thId').after("<td>" + i + "</td>");
+					$('#thNome').after("<td>" + e.nomeCompleto + "</td>");
+					$('#thNomeMae').after("<td>" + e.nomeCompletoMae + "</td>");
+					$('#thSexo').after("<td>" + e.sexo + "</td>");
+					$('#thCPF').after("<td>" + e.cpf + "</td>");
+					$('#thTelResidencial').after("<td>" + e.telefoneResidencial + "</td>");
+					$('#thTelCelular').after("<td>" + e.telefoneCelular + "</td>");
+					$('#thCidade').after("<td>" + e.cidade + "</td>");
+					$('#thEstado').after("<td>" + e.estado + "</td>");
+					$('#thEndereco').after("<td>" + e.endereco + "</td>");
+					$('#thNumero').after("<td>" + e.numero + "</td>");
+					$('#thComplemento').after("<td>" + e.complemento + "</td>");
+					$('#thBairro').after("<td>" + e.bairro + "</td>");
+					$('#thCEP').after("<td>" + e.cep + "</td>");
+					$('#thDtNascimento').after("<td>" + e.dataNascimento + "</td>");
+					$('#thMaior').after("<td>" + bolMaior + "</td>");
+					$('#thEmail').after("<td>" + e.email + "</td>");
+					$('#thSenha').after("<td>" + e.senha + "</td>");
+					$('#thDtCadastro').after("<td>" + e.dataCadastro + "</td>");
+					//html.push("</tr>");
+					//table.append(html.join(""));
 				});
 
 				console.log('table: ' + table);
@@ -295,29 +312,29 @@ $(document).ready(function(){
 					}
 
 					var html = [];
-					html.push("<tr class='trInfPagSeguro'>");
+					//html.push("<tr class='trInfPagSeguro'>");
 					//html.push("  <td>" + e.uid + "</td>");
-					html.push("  <td>" + i + "</td>");
-					html.push("  <td>" + e.nomeCompleto + "</td>");
-					html.push("  <td>" + e.nomeCompletoMae + "</td>");
-					html.push("  <td>" + e.sexo + "</td>");
-					html.push("  <td>" + e.cpf + "</td>");
-					html.push("  <td>" + e.telefoneResidencial + "</td>");
-					html.push("  <td>" + e.telefoneCelular + "</td>");
-					html.push("  <td>" + e.cidade + "</td>");
-					html.push("  <td>" + e.estado + "</td>");
-					html.push("  <td>" + e.endereco + "</td>");
-					html.push("  <td>" + e.numero + "</td>");
-					html.push("  <td>" + e.complemento + "</td>");
-					html.push("  <td>" + e.bairro + "</td>");
-					html.push("  <td>" + e.cep + "</td>");
-					html.push("  <td>" + e.dataNascimento + "</td>");
-					html.push("  <td>" + bolMaior + "</td>");
-					html.push("  <td>" + e.email + "</td>");
-					html.push("  <td>" + e.senha + "</td>");
-					html.push("  <td>" + e.dataCadastro + "</td>");
-					html.push("</tr>");
-					table.append(html.join(""));
+					$('#thId').after("<td>" + i + "</td>");
+					$('#thNome').after("<td>" + e.nomeCompleto + "</td>");
+					$('#thNomeMae').after("<td>" + e.nomeCompletoMae + "</td>");
+					$('#thSexo').after("<td>" + e.sexo + "</td>");
+					$('#thCPF').after("<td>" + e.cpf + "</td>");
+					$('#thTelResidencial').after("<td>" + e.telefoneResidencial + "</td>");
+					$('#thTelCelular').after("<td>" + e.telefoneCelular + "</td>");
+					$('#thCidade').after("<td>" + e.cidade + "</td>");
+					$('#thEstado').after("<td>" + e.estado + "</td>");
+					$('#thEndereco').after("<td>" + e.endereco + "</td>");
+					$('#thNumero').after("<td>" + e.numero + "</td>");
+					$('#thComplemento').after("<td>" + e.complemento + "</td>");
+					$('#thBairro').after("<td>" + e.bairro + "</td>");
+					$('#thCEP').after("<td>" + e.cep + "</td>");
+					$('#thDtNascimento').after("<td>" + e.dataNascimento + "</td>");
+					$('#thMaior').after("<td>" + bolMaior + "</td>");
+					$('#thEmail').after("<td>" + e.email + "</td>");
+					$('#thSenha').after("<td>" + e.senha + "</td>");
+					$('#thDtCadastro').after("<td>" + e.dataCadastro + "</td>");
+					//html.push("</tr>");
+					//table.append(html.join(""));
 				});
 
 				console.log('table: ' + table);

@@ -39,3 +39,16 @@
 #divInfDadosPagSeguro, #showFormPagSeguro {
     visibility: hidden;
 }
+
+
+.tab-response th, .tab-response td  {
+    text-align: center;
+}
+
+.tabela-dados {
+    padding-top: 25px
+}
+
+.tabela-dados h4 {
+    padding-bottom: 25px;
+}
