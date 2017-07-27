@@ -52,3 +52,85 @@
 .tabela-dados h4 {
     padding-bottom: 25px;
 }
+
+#modal1 {
+    top: 5%!important;
+}
+
+.modal {
+    width: 50%;
+    max-height: 90%;
+}
+
+.rolagem::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0px;
+    display: none;
+}
+
+.marca-texto {
+    font-family:"Calibri",sans-serif;
+    color:#222222
+}
+
+.espaco-regulamento {
+    margin-left:18.0pt;
+    text-align:justify
+}
+ 
+.texto-cadastro {
+    color: #ff0000;
+}
+
+.link-regulamento {
+    font-size:10.5pt;
+    line-height:115%;
+    font-family:"Arial",sans-serif;
+}
+
+.fundo-destaque {
+   text-align:justify;
+   background:#fff;
+   padding: 15px 20px;
+}
+ 
+.versao-regulamento {
+   position:absolute; 
+   z-index:251659264;
+   left:0px;
+   margin-left:119px;
+   margin-top:4px;
+   width:62px; 
+   height:15px  
+}
+
+.modal-content p {
+    text-align: justify;
+}
+
+.btn-sair {
+    float: right;
+    position: relative;
+    bottom: 55px;
+    font-weight: bold;
+}
+
+.btn-sair-abaixo {
+    float: right;
+    position: relative;
+    font-weight: bold;
+}
+
+.pVersaoGratuita {
+    position: relative;
+    width: 22%;
+    /* border-style: solid; */
+    float: left;
+}
+
+.pVersaoGratuitaPonto {
+    position: relative;
+    /* border-style: solid; */
+    width: 12%;
+    float: left;
+}
