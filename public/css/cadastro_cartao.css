@@ -58,7 +58,7 @@
 }
 
 .modal {
-    width: 50%;
+    /*width: 50%; */
     max-height: 90%;
 }
 
@@ -111,7 +111,7 @@
 .btn-sair {
     float: right;
     position: relative;
-    bottom: 55px;
+    bottom: 39px;
     font-weight: bold;
 }
 
