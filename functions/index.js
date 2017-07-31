@@ -96,7 +96,6 @@ var registerInviteList = function(convidante, user){
 var increasePoints = function(pontos, id){
 	var pontosReference = admin.database().ref('pontos/' + id);
 	pontosReference.once('value',function(snapshot){
-		var total = snapshot.val().pontos + pontos;
-		pontosReference.update({pontos: total});
+		snapshot.val().pontos += pontos;
 	});
 };
