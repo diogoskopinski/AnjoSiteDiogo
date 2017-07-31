@@ -71,7 +71,7 @@ function validarDadosCadastro() {
 		return false;
 	}
 
-	if($('#txtTelResidencial').val() == '' && $('#txtTelCelular').val() ) { 
+	if($('#txtTelResidencial').val() == '' && $('#txtTelCelular').val() == '') { 
 		alert('Necessário preencher algum telefone Residencial ou Celular!');
 		$('#txtTelCelular').focus();
 		return false;

@@ -14,13 +14,6 @@ $(document).ready(function(){
 
 		    console.log('a_L_12: ' + idUsuario);
 
-/*		    if(idUsuario == 'WfSo7LZgDEVtPPUx0c6cNHM7DLJ2' || idUsuario == 'yLVzQhTJmENBbM5lX5fkgjN9zCi2'){
-		    	console.log('é igual admin');
-		    	$('#divInfDadosPagSeguro, #showFormPagSeguro').css('visibility', 'visible');
-				console.log('mostra botao usuario admin');
-		    } */
-
-
 			var usersReference = firebase.database().ref('users/' + idUsuario);
 
 			usersReference.on('value', function(snapshot){
@@ -35,12 +28,6 @@ $(document).ready(function(){
 				}
 			});
 
-
-/*		    var pontosReference = firebase.database().ref('pontos/' + user.uid );
-                        
-	        pontosReference.on('value', function(snapshot){
-	            $('.userPoints').html(snapshot.val().pontos);
-	        }); */
 
 			var peopleReference = firebase.database().ref('people/' + idUsuario );
                         
@@ -134,19 +121,6 @@ $(document).ready(function(){
 	    		}
 	        });
 
-
-		    /*var name, email, photoUrl, uid;
-			if (user != null) {
-				name = user.displayName;
-				email = user.email;
-				photoUrl = user.photoURL;
-				uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-				               // this value to authenticate with your backend server, if
-				               // you have one. Use User.getToken() instead.
-		        console.log('name: ' + name + '  - email: ' +  email + ' photoUrl: ' +photoUrl);
-		        console.log('uid: ' + uid);
-			} */
-
 	  	} else {
 	    	// No user is signed in.
 	    	console.log('b_L_18: ' + user);
@@ -163,22 +137,6 @@ $(document).ready(function(){
 		listar();
 	});
 	
-	/*validaListagem();
-
-	function validaListagem(){
-		var usuario = firebase.auth().currentUser;
-		console.log('usuario: ' + usuario);
-
-		//var idUsuario = usuario.uid;
-		//console.log('L_7_usuario.uid: ' + idUsuario);
-
-	}*/
-	
-	
-//var a = validarDadosCadastro();
-//console.log('a: ' + a);
-
-
 
 	$("#saveFormPagSeguro").on("click", function(){
 		if(validarDadosCadastro()) {
