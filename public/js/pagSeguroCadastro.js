@@ -12,7 +12,7 @@ $(document).ready(function(){
 				$("#txtEmail").focus();
 			}
 
-		    console.log('a_L_12: ' + idUsuario);
+		    //console.log('a_L_12: ' + idUsuario);
 
 			var usersReference = firebase.database().ref('users/' + idUsuario);
 
@@ -20,9 +20,9 @@ $(document).ready(function(){
     			var snpU = snapshot.val();
 				for(var u in snpU) {
 					if(u == 'tipo_usuario' && (snpU[u] == 'A' || snpU[u] == 'G')) {
-						console.log('é igual admin ou gerente: ' + snpU[u]);
+						//console.log('é igual admin ou gerente: ' + snpU[u]);
 		    			$('#divInfDadosPagSeguro, #showFormPagSeguro').css('visibility', 'visible');
-						console.log('mostra botao usuario admin ou gerente');
+						//console.log('mostra botao usuario admin ou gerente');
 					}
 
 				}

@@ -197,11 +197,13 @@
                         <div class="row">
                             <p>
                                 <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-                                <label for="filled-in-box">Li e estou de acordo com os termos do 
+                                <label for="filled-in-box" id="lblTesteDiogo" >Li e estou de acordo com os termos do 
                                      <!-- <a target="_blank" href="termoRegulamento.htm">Contrato e Regulamento Anjo</a></label>  -->
                                     <!-- <a target="_blank" href="Termo e regulamento Anjo.mht">Contrato e Regulamento Anjo</a></label> -->
 
-                                    <a href="#modal1">Contrato e Regulamento Anjo</a></label>
+
+                                    <!--<a href="#modal1">-->
+                                    <a href="#modal1" id="Clique3" onload="$('#modal1').click(); console.log('ok onload');">Contrato e Regulamento Anjo</a></label>
                                     <!-- <a class="btn modal-trigger" href="#modal1">regulamento</a> -->
                             </p>
                         </div>
@@ -215,11 +217,19 @@
 
         <!-- Modal Structure -->
         <div id="modal1" class="modal rolagem">
-            <div class="col s12 m12">
+            <div id="divTermoconteudoTodo" class="col s12 m12" style="overflow: scroll; visibility: hidden;">
                 <p>TERMOS E CONDIÇÕES DE CONTRATAÇÃO DE ASSINATURAS</p>
                 <span class="btn-sair modal-close">X</span>
 
-                <p class="fundo-destaque" >
+<style onload="alert('ok !')"> </style>
+
+<div id="escondido" style="display:none;">
+    Eu irei aparecer ihhhhhh
+</div>
+<a href="http://google.com.br" target="_blank" id="Clique4">Clique aqui</a>
+
+
+                <p class="fundo-destaque" onload="alert('L_224');">
                     São partes neste instrumento, de um lado Life Quality Studio Ltda, pessoa Jurídica legalmente constituída, com sede Rua:
                     <span class="marca-texto">Endereço
                     comercial: Rua Primeiros sonhos, 31 Jardim Guanabara, Ilha do Governador RJ</span>,
@@ -534,6 +544,7 @@
                 <p>17.1 - O usuário que optar em solicitar o cartão de crédito pré-pago no programa de fidelidade Anjo, automaticamente
                     estará concordando com os termos do mesmo.</p>
 
+                <a id="ancoraCartao" name="ancoraCartao"> Cartão de crédito ancora ?</a>
                 <p>17.2 - Para solicitar o cartão de credito pré-pago no programa de fidelidade Anjo é só o usuário clicar na
                     imagem ou desenho do cartão de crédito que se encontra no site Anjo <a href="http://www.appanjo.com.br">www.appanjo.com.br</a>,
                     onde o usuário vai ser direcionado para preencher um formulário com seu dados para fazer a solicitação

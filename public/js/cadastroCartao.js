@@ -4,7 +4,79 @@ $(document).ready(function () {
 	$('#txtCep').mask('00000-000'); //CEP 
 	$('#txtCpf').mask('000.000.000-00'); //CPF 
 
+
+console.log('L_8');
+	$('#Clique3').click(function() { 
+		console.log('L_9');
+    	document.location = '#ancoraCartao';
+    	$("#divTermoconteudoTodo").css('visibility', "visible");
+	} );
+
+console.log('L_14_visibility' + $("#divTermoconteudoTodo").css('visibility'));
+ if($("#divTermoconteudoTodo").css('visibility') == "visible") {
+ 	document.location = '#ancoraCartao';
+ 	console.log('L_17_visibility' + $("#divTermoconteudoTodo").css('visibility'));
+ };
+
+
+	/*$( "#Clique3" ).click(function() {
+	 	$("#escondido").css("display","block");
+	  
+  //  	document.location = '#ancoraCartao';
+//    	 <a href="#modal1" id="Clique3"
+    	 //$("#ancoraCartao").attr('href', '#ancoraCartao');
+    	 $("#modal1").click();
+   /* 	 $('a').attr({
+   'title': 'Title modificado por jQuery',
+   'href': 'http://www.desarrolloweb.com',
+   'style': 'color: #f80'
+}); 
+   		console.log('L_23 ok ancora ?');
+   		console.log('b: ' + $("#escondido").attr('href'));
+	});
+*/
+	$( "#Clique4" ).click(function() {
+		console.log('clique 4 !');
+	});
 });
+
+ /*$(window).load(function () {
+ 	document.location = '#ancoraCartao';
+ 	console.log('load');
+ 	}); */
+
+	$('#Clique3').click(function() { 
+		console.log('L_9');
+    	document.location = '#ancoraCartao';
+	} );
+
+/*
+$(document.modal1).onload(function () {
+	console.log('L_17 onLoad');
+	document.location = '#ancoraCartao';
+});
+*/
+
+ if($("#divTermoconteudoTodo").css('visibility') == "visible") {
+ 	document.location = '#ancoraCartao';
+ 	console.log('L_62_visibility' + $("#divTermoconteudoTodo").css('visibility'));
+ };
+
+console.log('L_8');
+	/*$('#lblTesteDiogo').click(function() { 
+		console.log('L_9');
+    	document.location = '#ancoraCartao';
+	} );
+
+});
+console.log('L_17');
+	$('#lblTesteDiogo').click(function() { 
+		console.log('L_19');
+		$().load('#ancoraCartao');
+    	//document.location = '#ancoraCartao';
+    	console.log('L_21');
+	});
+*/
 
 function formataDataAtual(){
 	var data = new Date();
