@@ -1,162 +1,776 @@
+
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <link type="text/css" rel="stylesheet" href="/css/material-icons.css"/>
-        <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
-        <link type="text/css" rel="stylesheet" href="/css/anjo.css"/>
-        <!-- <link type="text/css" rel="stylesheet" href="/css/cadastro.css"/> -->
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/material-icons.css" />
+    <link type="text/css" rel="stylesheet" href="/css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="/css/anjo.css" />
+    <link type="text/css" rel="stylesheet" href="/css/cadastro_cartao.css" />
+    <!-- <link type="text/css" rel="stylesheet" href="/css/cadastro.css"/> -->
 
-<!--        <script src="js/bootstrap.min.js"> </script> -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--        <script src="js/bootstrap.min.js"> </script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>App Anjo - Cadastro Cartão Alimentação</title>
-    </head>
-    <body>
+    <title>App Anjo - Cadastro Cartão Alimentação</title>
+</head>
 
-<script src="js/lib/jquery-3.2.0.min.js"></script>
+<body>
 
-        <header>
-            <nav class="menu-header">
-                <div class="nav-wrapper">
-                    <a data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons black-text">menu</i></a>
-                    <ul class="logo-list">
-                        <li><a href="/index"><img class="menu-img" src="/img/logo_semfundo.png" /></a></li>
+    <script src="js/lib/jquery-3.2.0.min.js"></script>
+
+    <header>
+        <nav class="menu-header">
+            <div class="nav-wrapper">
+                <a data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons black-text">menu</i></a>
+                <ul class="logo-list">
+                    <li><a href="/index"><img class="menu-img" src="/img/logo_semfundo.png" /></a></li>
+                </ul>
+                <section>
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <li><a class="app-black-text" href="/index">Como Funciona</a></li>
+                        <li><a class="app-black-text" href="/pontos">Pontos Life</a></li>
+                        <li><a class="app-black-text" href="/sobre">Sobre Nós</a></li>
+                        <li><a class="app-black-text" href="/contato">Entre em Contato</a></li>
                     </ul>
-                    <section>
-                        <ul id="nav-mobile" class="left hide-on-med-and-down">
-                            <li><a class="app-black-text" href="/index">Como Funciona</a></li>
-                            <li><a class="app-black-text" href="/pontos">Pontos Life</a></li>
-                            <li><a class="app-black-text" href="/sobre">Sobre Nós</a></li>
-                            <li><a class="app-black-text" href="/contato">Entre em Contato</a></li>
-                        </ul>
-                    </section>
-                    <section>
-                        <ul  class="right hide-on-med-and-down userMenu">
-                            <li><a class="userName app-black-text">App Anjo</a></li>
-                            <li>
-                                <div class="userPoints app-black-text">-</div>
-                                <img src=""/> <img class="menu-img" src="/img/assets/pontos-life.png"/> 
-                            </li>
-                            <li><a class="login-button app-red-text">Entrar</a></li>
-                        </ul>
-                    </section>
+                </section>
+                <section>
+                    <ul class="right hide-on-med-and-down userMenu">
+                        <li><a class="userName app-black-text">App Anjo</a></li>
+                        <li>
+                            <div class="userPoints app-black-text">-</div>
+                            <img src="" /> <img class="menu-img" src="/img/assets/pontos-life.png" />
+                        </li>
+                        <li><a class="login-button app-red-text">Entrar</a></li>
+                    </ul>
+                </section>
 
-                </div>
-            </nav>
-            <ul id="slide-out" class="side-nav">
-                <li>
-                    <div class="userView">
-                        <div class="background">
-                            <img src="/img/assets/background.png">
-                        </div>
-                        <a id="userPhoto"><img class="circle" src="/img/logo.svg"></a>
-                        <a><span class="userName white-text name">App Anjo</span></a>
-                        <a><span class="userEmail white-text email">anjo@anjo.com</span></a>
+            </div>
+        </nav>
+        <ul id="slide-out" class="side-nav">
+            <li>
+                <div class="userView">
+                    <div class="background">
+                        <img src="/img/assets/background.png">
                     </div>
-                </li>
-                <li><a href="/index"><i class="material-icons">info</i>Como Funciona</a></li>
-                <li><a href="/pontos"><i class="material-icons">favorite</i>Pontos Life</a></li>
-                <li><a href="/sobre"><i class="material-icons">dashboard</i>Sobre Nós</a></li>
-                <li><a href="/contato"><i class="material-icons">mail</i>Entre em Contato</a></li>
-                <li><a><i class="material-icons">input</i><span class="login-button">Entrar</span></a></li>
-            </ul>
-        </header>
-        
-        <main class="container-principal">
-          <div class="row">
-            
-            <!--
-            <form>
-                <div class="form-group">
-                    <label for="email"> E-mail: </label>
-                    <input type="email" class="form-control" id="email" placeholder="diogo.skopinski@gmail.com"> 
+                    <a id="userPhoto"><img class="circle" src="/img/logo.svg"></a>
+                    <a><span class="userName white-text name">App Anjo</span></a>
+                    <a><span class="userEmail white-text email">anjo@anjo.com</span></a>
                 </div>
+            </li>
+            <li><a href="/index"><i class="material-icons">info</i>Como Funciona</a></li>
+            <li><a href="/pontos"><i class="material-icons">favorite</i>Pontos Life</a></li>
+            <li><a href="/sobre"><i class="material-icons">dashboard</i>Sobre Nós</a></li>
+            <li><a href="/contato"><i class="material-icons">mail</i>Entre em Contato</a></li>
+            <li><a><i class="material-icons">input</i><span class="login-button">Entrar</span></a></li>
+        </ul>
+    </header>
 
-                <div class="form-group">
-                    <label for="senha"> Senha: </label>
-                    <input type="password" class="form-control" id="senha" placeholder="Teste2017"> 
-                </div>
-
-                <button type="button" id="btnLogin" class="btn btn-default"> ACESSAR </button>
-                <button type="button" id="btnSair" class="btn btn-default" style="display: none"> SAIR </button>               
-            </form>
-            -->
-
-
-
+    <main class="container-principal">
+        <div class="row">
 
             <form class="col s12" id="formCadastroPagSeguro">
-              <div class="row">
-                <div class="input-field col s6">
-                  <i class="material-icons prefix">account_circle</i>
-                  <input id="NomeCompleto" name="NomeCompleto" type="text" class="validate">
-                  <label for="icon_prefix">Nome Completo</label>
+                <div class="container">
+                    <div class="row">
+                        <form class="col s12">
+                            <h4 class="titulo-page-cartao">Dados Pessoais - Cartão Alimentação</h4>
+
+                            <div class="row">
+                                <div class="input-field col l8 s12">
+                                    <input type="text" class="validate" id="txtNomeCompleto">
+                                    <label for="">Nome completo</label>
+                                </div>
+                            </div>
+                        
+                            <div id="divDeclaroMaior" class="dados-pessoal col s12">
+                                <label for="">Declaro ser maior que 18 anos:</label>
+                                <input name="bolMaior" type="radio" id="maiorS" />
+                                <label for="maiorS">Sim</label>
+                                <input name="bolMaior" type="radio" id="maiorN" />
+                                <label for="maiorN">Não</label>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col l4 s12">
+                                    <input id="txtCpf" type="text" class="validate">
+                                    <label for="">CPF</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col l4 s12">
+                                    <input id="txtRG" type="text" class="validate">
+                                    <label for="">RG</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col l4 s10">
+                                    <input id="txtTelCelular" type="text" class="validate">
+                                    <label for="">Telefone celular</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col l4 s12">
+                                    <input id="txtCep" type="text" class="validate">
+                                    <label for="">CEP</label>
+                                </div>
+                            </div>
+
+                            <span class="legenda-txt">Não sabe o seu CEP 
+                                <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class="link-cep">Pesquisar</a>
+                            </span>
+                            
+                            <div class="row">
+                                <div class="input-field col l8 s12">
+                                    <input type="text" class="validate" id="txtEndereco">
+                                    <label for="">Endereço</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col l2 s6">
+                                    <input type="text" class="validate" id="numNumero">
+                                    <label for="">Número</label>
+                                </div>
+                                <div class="input-field col l4 s6">
+                                    <input type="text" class="validate" id="txtEstado">
+                                    <label for="">Estado</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col l4 s12">
+                                    <input type="text" class="validate" id="txtCidade">
+                                    <label for="">Cidade</label>
+                                </div>
+
+                                <div class="input-field col l4 s12">
+                                    <input type="text" class="validate" id="txtBairro">
+                                    <label for="">Bairro</label>
+                                </div>
+                                <div class="input-field col l6 s12">
+                                    <input type="text" id="txtComplemento" class="validate" placeholder="Ex.: Casa, apartamento, Bloco">
+                                    <label for="">Complemento</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <p>
+    <input name="rdConcordaTermoAlimentacao" id="rdConcordaTermoAlimentacao" type="checkbox" class="filled-in" checked="checked" />
+    <!-- <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /> -->
+                                    <label for="rdConcordaTermoAlimentacao" id="lblTesteDiogo" >Li e estou de acordo com os termos do 
+                                    
+                                    <a href="#modal1" onload="$('#modal1');">Contrato e Regulamento Anjo</a></label>
+                                </p>
+                            </div>
+
+                            <button id="saveFormCartaoAlimentacao" type="submit" class="waves-effect waves-light btn-large btn-confirmar"> Confirmar </button>
+                        </form>
+                    </div>
                 </div>
 
-                <div class="input-field col s6">
-                  <i class="material-icons prefix">phone</i>
-                  <input id="Telefone" name="Telefone" type="tel" class="validate">
-                  <label for="icon_telephone">Telefone</label>
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal rolagem">
+                    <div class="col s12 m12">
+                        <p>TERMOS E CONDIÇÕES DE CONTRATAÇÃO DE ASSINATURAS</p>
+                        <span class="btn-sair modal-close">X</span>
+
+                        <a href="#ancoraCartaoAlimentação" id="CliqueCartaoAlimentacacao">Termos do Cartão Alimentação - Clique aqui</a>
+
+                        <p class="fundo-destaque">
+                            São partes neste instrumento, de um lado Life Quality Studio Ltda, pessoa Jurídica legalmente constituída, com sede Rua:
+                            <span class="marca-texto">Endereço
+                    comercial: Rua Primeiros sonhos, 31 Jardim Guanabara, Ilha do Governador RJ</span>,
+                            inscrita no CNPJ número:
+                            <span class="marca-texto">14.671.647/0001-50. </span>Doravante identificada simplesmente como
+                            plataforma Anjo e de outro lado, a pessoa física no Cadastramento Eletrônico pelo seu Código
+                            de Assinante, doravante identificada simplesmente como ASSINANTE.</p>
+
+                        <p>1. OBJETO DOS TERMOS E CONDIÇÕES: O presente instrumento tem por objeto estabelecer os termos e condições
+                            da contratação celebrada entre a plataforma Anjo e o ASSINANTE para acessória do controle de
+                            peso corporal por meio de  um contador de calorias, PODENDO gerar prevenção das principais doenças
+                            crônicas não transmissíveis
+                        </p>
+
+                        <p>1.1 As informações encontram-se disponíveis ao ASSINANTE no site da plataforma Anjo <a href="http://www.appanjo.com.br">www.appanjo.com.br</a>                            e no app Anjo.</p>
+
+                        <p>2. CÓDIGO DA ASSINATURA: A plataforma Anjo concederá ao assinante acesso a toda movimentação de seus
+                            dados, mediante ao cadastro de suas informações que poderão ser registradas através:</p>
+
+                        <p class="espaco-regulamento">A-Login com Facebook </p>
+
+                        <p class="espaco-regulamento">B - Login com G-mail </p>
+
+                        <p class="espaco-regulamento">C - Cadastro de e-mail e senha.</p>
+
+                        <p>3. ENTREGA A entrega do Serviço se iniciará no ato da constatação do pagamento da assinatura a contar
+                            da data da contratação.</p>
+
+                        <p>3.1. O ASSINANTE deverá informar de maneira completa todos os dados de seu endereço o ato do pagamento
+                            da assinatura
+                        </p>
+
+                        <p class="espaco-regulamento">a) Logradouro (Ex.: rua, avenida, praça, etc.);</p>
+
+                        <p class="espaco-regulamento">b) Número do imóvel; </p>
+
+                        <p class="espaco-regulamento">c) Eventual complemento (Ex.: apto., casa, fundos, baixos, etc.); </p>
+
+                        <p class="espaco-regulamento">d) bairro; </p>
+
+                        <p class="espaco-regulamento">e) Cidade; </p>
+
+                        <p class="espaco-regulamento">f) Estado; </p>
+
+                        <p class="espaco-regulamento">g) Código de Endereçamento Postal – CEP.</p>
+
+                        <p>4. CONTRATAÇÃO, PREÇOS E FORMAS DE PAGAMENTO: A contratação pelo ASSINANTE deverá ser realizada por
+                            meio do site da plataforma Anjo www.appanjo.com.br ou através do app Anjo, onde constarão todos
+                            os Planos de Assinatura disponíveis, bem como suas condições específicas.
+                        </p>
+
+                        <p>4.1. O ASSINANTE deverá optar pelo Plano de Assinatura que deseja contratar, sendo certo que suas
+                            condições específicas (Valores, Prazos, Condições de Pagamento e etc.) constantes do site passarão
+                            a fazer parte integrante e inseparável do presente instrumento.</p>
+
+                        <p>4.2. O ASSINANTE expressamente declara e garante para todos os fins de direito: </p>
+
+                        <p>(I) possuir mínimo de entendimento razoável para celebrar este instrumento e para utilizar o serviço;
+                        </p>
+
+                        <p>(II) reconhecer que o presente instrumento se formaliza, vinculando as partes, com a confirmação
+                            contratual, o que se fará mediante o clique no espaço reservado para tanto no site da plataforma
+                            Anjo <a href="http://www.appanjo.com.br">www.appanjo.com.br</a> , ou do app Anjo.
+                        </p>
+
+                        <p>4.3. Como contraprestação pelo objeto deste contrato, o ASSINANTE deverá pagar à mensalidade,  quantia
+                            correspondente ao Plano contratado, conforme opção realizada no ato da compra.</p>
+
+                        <p>4.4. A forma de pagamento será escolhida pelo ASSINANTE dentre as constantes do site da plataforma
+                            Anjo
+                            <a href="http://www.appanjo.cm.br">www.appanjo.cm.br</a> ou do app Anjo para o Plano escolhido,
+                            onde constarão também a periodicidade da cobrança e eventuais penalidades.
+                        </p>
+
+                        <p>5. BANCO DE DADOS: O ASSINANTE se declara ciente de que, a partir da contratação da assinatura de
+                            serviço, o mesmo passa a fazer parte do banco de dados da plataforma Anjo , por meio do qual
+                            poderá vir a receber informações da mesma  e de outras empresas idôneas com as quais a plataforma
+                            Anjo possua relacionamento.
+                        </p>
+
+                        <p>5.1. A inviolabilidade e o sigilo dos dados cadastrais de todo os ASSINANTES são assegurados pela
+                            plataforma Anjo ou empresa contratada para realizar este trabalho. Todas as suas informações
+                            serão armazenadas dentro dos mais rígidos critérios de segurança no banco de dados da plataforma
+                            Anjo ou empresa contratada para realizar este tipo de serviço e são tratadas de acordo com a
+                            legislação aplicável e mediantes as clausulas descritos nestas. Em nenhuma hipótese são fornecidas
+                            in formações pessoais para terceiros que não seja autorizada pela plataforma Anjo, onde no ato
+                            da confirmação contratual, que fará mediante ao clique em espaço reservado para tal no site da
+                            plataforma Anjo ou no app Anjo o assinante estará concordando com todas as clausulas descritas.</p>
+
+                        <p>6. SERVIÇO DE ATENDIMENTO AO ASSINANTE: Fale conosco  da plataforma Anjo disponibiliza ao ASSINANTE
+                            Serviço de Atendimento e coloca à disposição o principal canal de contato:  </p>
+
+                        <p>Site: <a href="http://www.appanjo.com.br">www.appanjo.com.br</a>  </p>
+
+                        <p>A - Fale conosco:</p>
+
+                        <p>B - Após o recebimento do e-mail, o fale conosco da plataforma Anjo terá um prazo de até 3 dias uteis
+                            para fazer os possíveis esclarecimentos.</p>
+
+                        <p>C - Periodicidade de funcionamento = 24 por dia </p>
+
+                        <p>7. PRAZO: Este instrumento é celebrado pelo prazo de 30 dias, conforme regulamento da plataforma
+                            Anjo, sendo prorrogado por períodos iguais, por meio da renovação automática mediante ao pagamento
+                            da assinatura no prazo vigente.</p>
+
+                        <p>8. PROCEDIMENTO DE RENOVAÇÃO: Adotada  o procedimento de renovação automática da assinatura, dirigido
+                            exclusivamente ao ASSINANTE, assegurando facilidade e agilidade na renovação.</p>
+
+                        <p>8.1. A assinatura tem renovação automática mediante a constatação do pagamento da assinatura no sistema
+                            da plataforma Anjo.</p>
+
+                        <p>9. CANCELAMENTO: A plataforma Anjo assegura ao ASSINANTE a possibilidade de cancelamento do presente
+                            instrumento a qualquer tempo, sem aviso prévio, através do botão cancelar , e consequente a assinatura
+                            do assinante será cancelada.</p>
+
+                        <p>10. Caso o ASSINANTE não pague o valor devido da assinatura escolhida no prazo estipulado de 30 dias,
+                            o presente instrumento poderá ser rescindido com a imediata suspensão dos serviços, sem a necessidade
+                            de comunicação prévia ,  conforme regulamento das versões.</p>
+
+                        <p><b>11. </b>ALTERAÇÕES DOS TERMOS E CONDIÇÕES. Quaisquer alterações que impactem financeiramente ao
+                            ASSINANTE, serão feitas mediante comunicação prévia ao mesmo, onde o assinante não concordando
+                            poderá cancelar a sua assinatura a qualquer momento, apertando o botão cancelar assinatura.
+                        </p>
+
+                        <p>
+                            <b>12- Cadastro da versão gratuita ou básica</b>: Na versão básica não tem limites para cadastro
+                            de usuário na plataforma Anjo, mas tem limites de pontos para resgatar ou doar pontos provenientes
+                            a versão gratuita no mês corrente ou no ciclo de 30 dias, ou seja, cada usuário tem direito de
+                            regatar ou doar no máximo 200 pontos Life equivalente 1.000 cadastro da versão gratuita no ciclo
+                            de 30 dias.</p>
+
+                        <p>12.1- Os pontos provenientes excedentes da versão gratuita no ciclo de 30 dias, ou seja, mais de
+                            200 pontos, não serão transferidos para o próximo mês ou ciclo de 30 dias.</p>
+
+                        <p>12.2 – O usuário da versão gratuita ou básica poderá doar seus pontos disponíveis igual ou superior
+                            2 pontos Life a qualquer momento para as escolas públicas cadastradas no sistema , mas para resgatar
+                            seus pontos disponíveis e trocar no programa de fidelidade Anjo, o mesmo terá de migrar para
+                            uma das versões pagas Life ou Life Premium e terá de ter no mínimo 10 pontos Life.</p>
+
+                        <p>12.3 – Todos os resgates  ou doação de pontos provenientes da versão gratuita, serão efetuados uma
+                            única vez dentro do ciclo de 30 dias, podendo acontecer no próximo ciclo somente com novos usuários
+                            da versão gratuita.
+                        </p>
+
+                        <p>12.4 – Para o usuário que indicou um novo usuário da versão gratuita, o usuário que indicou receberá
+                            0,20 Life uma única vez no final do ciclo de 30 dias. Para o usuário que indicou continuar recebendo
+                            os pontos recorrentes do usuário indicado, o mesmo terá de migrar para uma das versões pagas
+                            Life ou Life Premium, desta forma receberá os pontos mediante a versão escolhida.</p>
+
+                        <p>12.5 – Para o usuário doar seus pontos, o mesmo terá de ter uma pontuação mínimo 2 pontos Life, onde
+                            1 ponto vai para as escolas públicas cadastradas no sistema e parte do outro 1 ponto Life será
+                            direcionada para ajudar os familiares dos jovens carentes das comunidades.
+                        </p>
+
+                        <p>12.6 – Independente da versão escolhida, seja para doar ou regatar pontos Life será deduzido do total
+                            de pontos disponível em cada transação efetuada na plataforma Anjo 1 ponto Life, onde parte deste
+                            ponto serão destinados para ajudar familiares de jovens das comunidades. </p>
+
+                        <p>12.7 – O total de pontos doados para as escolas publica cadastrada no sistema no período de 90 a
+                            120 dias independente da versão escolhida ficaram expostos no site da plataforma Anjo onde todos
+                            os usuários poderão conferir os valores doados.</p>
+
+                        <p>13
+                            <b> - Cadastro na plataforma Anjo na versão Life:</b> Na versão Life não tem limites para cadastro
+                            de novos usuários na plataforma Anjo proveniente da versão Life ou Life Premium.</p>
+
+                        <p>13.1 - Doação de pontos disponíveis do usuário da versão Life: Para o usuário doar seus pontos, o
+                            mesmo terá de ter uma pontuação mínimo 2 pontos Life, onde 1 ponto vai para as escolas públicas
+                            cadastradas no sistema e parte do outro 1 ponto Life será direcionada para ajudar os familiares
+                            dos jovens carentes das comunidades.</p>
+
+                        <p>13.2 – Limite mínimo para resgate de pontos na versão Life<b>:</b> Para o usuário da versão Life
+                            resgatar seus pontos e trocar no programa de fidelidade Anjo, o mesmo tem de ter um limite mínimo
+                            de 10 pontos Life disponível no ciclo de 30 dias e estar com mensalidade da assinatura do mês
+                            corrente quitada. Caso o usuário não alcance a pontuação mínima para resgatar seus pontos, os
+                            mesmos serão transferidos para o próximo ciclo de 30 dias. </p>
+
+                        <p>13.3 – Limite superior para resgatar pontos na versão Life<b>:</b> Na versão Life não têm limite
+                            superior para resgatar pontos disponíveis, basta alcançar uma pontuação igual ou superior a 10
+                            pontos Life disponíveis provenientes da versão Life ou Life Premium, estar com mensalidade do
+                            ciclo de 30 dias quitada e estar com o cadastro na plataforma Anjo atualizado.  </p>
+
+                        <p>13.4 – Versão Life, recebimentos de pontos recorrentes: Na versão Life o usuário poderá receber pontos
+                            recorrentes referentes à sua lista de convidados ou contatos, para isso acontecer basta os seus
+                            indicados manter o cadastro atualizado e a mensalidade da assinatura do mês corrente quitada.</p>
+
+                        <p>13.5 = Versão Life, valor dos pontos recebidos<b>:</b> O usuário que indicar um novo usuário
+                            na versão Life, o usuário que indicou receberá 1 ponto Life.</p>
+
+                        <p>13.6 - Versão Life, valor dos pontos recebidos: O usuário que indicar um novo usuário
+                            na versão Life, o usuário que indicou receberá 1 ponto Life.
+                        </p>
+
+                        <p>13.7 – Versão Life, atraso no pagamento da assinatura: Para baixar ou migrar para versão Life o usuário
+                            terá de pagar o valor de R$ 4,46 da assinatura mensal. Como já foi falado acima, para o usuário
+                            resgatar seus pontos o mesmo terá de estar com o cadastro atualizado, ter pontos disponíveis
+                            iguais o superior a 10 pontos Life e a mensalidade do ciclo de 30 dias quitada. Na segunda mensalidade
+                            a ser paga, o usuário terá 30 dias para pagar mensalidade e resgatar ou doar seus pontos disponíveis,
+                            caso encerre o ciclo de 30 dias e o usuário não realizou o pagamento, não manteve o seu cadastro
+                            atualizado ou descumpriu qualquer regra do regulamento citado acima ou abaixo, 50% dos seus pontos
+                            Life vão para a plataforma Anjo, 25% vai para o contador geral de doação de pontos para as escolas
+                            públicas cadastradas no sistema e os outros 25% vai para ajudar familiares e jovens das comunidades.
+                            Desta forma vai prosseguindo até o prazo de três meses ou 90 dias onde após este prazo o usuário
+                            será direcionado para versão gratuita, mas a distribuição de seus pontos continua da mesma forma
+                            já citada acima. Mas a qualquer momento o usuário poderá resgatar a sua versão anterior fazendo
+                            o pagamento do ciclo de 30 dias atuais, onde desta forma não receberá os pontos retroativos e
+                            sim os pontos do ciclo atual de 30 dias atuais. </p>
+
+                        <p>13.8 - Independente da versão escolhida, seja para doar ou regatar pontos será deduzido do total
+                            de pontos em cada transação efetuada 1 ponto Life, onde parte deste ponto serão destinados para
+                            ajudar familiares e jovens das comunidades.</p>
+
+                        <p>
+                            <a id="ancoraCartaoAlimentação" name="ancoraCartaoAlimentação"></a>
+                            13.9 – Versão Life, usuário menor de idade: Na versão Life no caso do usuário menor de idade, ou seja, menor de 18 anos para
+                            trocar ou transferir seus pontos para <b>cartão alimentação</b>, o usuário poderá cadastrar os dados
+                            do seu responsável legal maior de 18 anos.
+                        </p>
+
+                        <p>
+                            13.10 - O total de pontos doados no período de 90 a 120 dias independente da versão escolhida ficará exposto no site da plataforma
+                            Anjo onde todos os usuários poderão conferir todos os pontos doados de todos os usuários da plataforma
+                            Anjo.
+                        </p>
+
+                        <p>
+                            13.11 – Quanto à doação ou resgate dos pontos disponíveis provenientes a versão gratuita dentro da versão Life, 
+                            irá seguir o critério do regulamento do cláusula (12) desta.
+                        </p>
+
+                        <p>14<b> - <span class="texto-cadastro"> </span>Cadastro na plataforma Anjo na versão Life Premium: </b>
+                            Na versão Life Premium, não tem limites para cadastro
+                            de novos usuários na plataforma Anjo proveniente da versão Life Premium ou Life. </p>
+
+                        <p>14.1 - Doação de pontos do usuário da versão Life Premium: Para o usuário doar seus pontos, o mesmo
+                            terá de ter uma pontuação mínimo 2 pontos Life, onde 1 ponto vai para as escolas públicas cadastradas
+                            no sistema e parte do outro 1 ponto Life será direcionada para ajudar os familiares dos jovens
+                            carentes das comunidades.</p>
+
+                        <p>14.2 <b> – </b>Limite mínimo para resgate de pontos na versão Life Premium: Para o usuário da versão
+                            Life Premium  resgatar  seus pontos e trocar no programa de fidelidade Anjo, o mesmo tem de ter
+                            um limite mínimo de 10 pontos Life disponível no ciclo de 30 dias e estar com mensalidade da
+                            assinatura do mês corrente quitada. Caso o usuário não alcance a pontuação mínima para resgatar
+                            seus pontos, os mesmos serão transferidos para o próximo ciclo de 30 dias. </p>
+
+                        <p>14.3 – <b>Limite superior para resgatar pontos na versão Life Premium:</b> Na versão Life Premium
+                            não têm limite superior para resgatar pontos disponíveis, basta alcançar uma pontuação igual
+                            ou superior a 10 pontos Life disponíveis provenientes da versão Life Premium ou Life, estar com
+                            mensalidade do ciclo de 30 dias quitada e estar com o cadastro na plataforma Anjo atualizado.
+                        </p>
+
+                        <p>14.4 <b>– </b>Versão Life Premium, recebimentos de pontos recorrentes: Na versão Life Premium o usuário
+                            poderá receber pontos recorrentes referentes à sua lista de convidados ou contatos, para isso
+                            acontecer basta os seus indicados manter o cadastro atualizado e a mensalidade da assinatura
+                            do mês corrente quitada.</p>
+
+                        <p>14.5 <b>– </b>Valor da assinatura: O usuário da versão Life Premium vai pagar o valor de R$ 11,46
+                            mensal para usufruir de todos os benefícios concedidos na plataforma Anjo ao assinante da versão
+                            Life Premium.
+                        </p>
+
+                        <p>14.6 <b>– </b>Versão Life Premium, valor dos pontos recebidos: O usuário que indicar um novo usuário
+                            na versão Life, o usuário que indicou receberá 3 pontos Life.</p>
+
+                        <p>14.7 – Versão Life Premium, atraso no pagamento da assinatura: Para baixar ou migrar para versão
+                            Life Premium o usuário terá de pagar o valor de R$ 11,46 da assinatura mensal. Como já foi falado
+                            acima, para o usuário resgatar seus pontos o mesmo terá de estar com o cadastro atualizado, ter
+                            pontos disponíveis iguais o superior a 10 pontos Life e a mensalidade do ciclo de 30 dias quitada.
+                            Na segunda mensalidade a ser paga, o usuário terá 30 dias para pagar mensalidade e resgatar ou
+                            doar seus pontos disponíveis, caso encerre o ciclo de 30 dias e o usuário não realizou o pagamento,
+                            não manteve o seu cadastro atualizado ou descumpriu qualquer regra do regulamento citado acima
+                            ou abaixo, 50% dos seus pontos Life vão para a plataforma Anjo, 25% vai para o contador geral
+                            de doação de pontos para as escolas públicas cadastradas no sistema e os outros 25% vai para
+                            ajudar familiares e jovens das comunidades. Desta forma vai prosseguindo até o prazo de três
+                            meses ou 90 dias onde após este prazo o usuário será direcionado para versão gratuita, mas a
+                            distribuição de seus pontos continua da mesma forma já citada acima. Mas a qualquer momento o
+                            usuário poderá resgatar a sua versão anterior fazendo o pagamento do ciclo de 30 dias atuais,
+                            onde desta forma não receberá os pontos retroativos e sim os pontos do ciclo atual de 30 dias
+                            atuais.
+                        </p>
+
+                        <p>14.8 - Independente da versão escolhida, seja para doar ou regatar pontos será deduzido do total
+                            de pontos em cada transação efetuada 1 ponto Life, onde parte deste ponto serão destinados para
+                            ajudar familiares e jovens das comunidades. </p>
+
+                        <p>14.9 <b>– Versão Life Premium, usuário menor de idade:</b> Na versão Life Premium no caso do usuário
+                            menor de idade, ou seja, menor de 18 anos para trocar ou transferir seus pontos para algum produto
+                            ou serviço do programa de fidelidade anjo que precise fazer cadastro, o usuário poderá cadastrar
+                            os dados do seu responsável legal maior de 18 anos.</p>
+
+                        <p>14.10 - O total de pontos doados no período de 90 a 120 dias independente da versão escolhida ficará
+                            exposto no site da plataforma Anjo onde todos os usuários poderão conferir.</p>
+
+                        <p>15 - Quanto à doação ou resgate dos pontos disponíveis provenientes a versão gratuita dentro da versão
+                            Life Premium, irá seguir o critério do regulamento da clausula (12) desta.</p>
+
+                        <p><b>16 - Para adquirir pontos na plataforma Anjo:</b> Inicialmente para adquirir pontos na plataforma
+                            Anjo, independente da versão utilizado, basta o usuário compartilhar o app Anjo com familiares,
+                            amigos e entre outros, seguindo o regulamento descrito nesta.</p>
+
+                        <p>16.1 <b>- Da versão Básica:</b> Quando o usuário envia o convite da plataforma Anjo e o convidado
+                            aceita optando pela versão gratuita ou básica o usuário que enviou convite recebe 0,20 pontos
+                            Life, apenas uma vez, ou seja, não recorrente.</p>
+
+                        <p>16.2- Se o usuário que recebeu o convite se interessar em migrar para umas das versões pagas, Life
+                            ou Life Premium, o usuário que enviou o convite passar a receber os pontos recorrentes mediante
+                            a versão escolhida pelo o usuário que recebeu o convite.</p>
+
+                        <p>16.3 - <b>Da versão Life:</b> Quando o usuário envia o convite da plataforma Anjo e o convidado aceita
+                            optando pela versão Life o usuário que enviou convite recebe 1 ponto Life recorrente, ou seja,
+                            enquanto o usuário continuar pagando a assinatura da versão Life, o usuário que enviou o convite
+                            continuará recendo 1 ponto Life recorrente ou mensalmente.</p>
+
+                        <p>16.4 - Se o usuário que recebeu o convite resolver migrar para outas versões, o usuário que enviou
+                            o convite receberá os pontos compatíveis à versão escolhida do usuário que recebeu o convite.
+                        </p>
+
+                        <p>16.5- <b>Da versão Life Premium:</b> Quando o usuário envia o convite da plataforma Anjo e o convidado
+                            aceita optando pela versão Life Premium o usuário que enviou convite recebe 3 pontos Life recorrente,
+                            ou seja, enquanto o usuário continuar pagando a assinatura da versão Life Premium, o usuário
+                            que enviou o convite continuará recendo 3 pontos Life recorrente ou mensalmente.</p>
+
+                        <p>16.6- Se o usuário que recebeu o convite resolver migrar para outas versões, o usuário que enviou
+                            o convite receberá os pontos compatíveis à versão escolhida do usuário que recebeu o convite.
+                        </p>
+
+                        <p><b>17 - Aquisição do cartão crédito pré-pago: </b> Os usuários da versão Live Premium além de ter
+                            direito a todos os serviços e produtos da versão Life, os mesmos terão direito a um cartão de
+                            crédito pré-pago. Para isso acontecer basta o usuário se adequar ao regulamento da versão Life
+                            Premium.
+                        </p>
+
+                        <p>17.1 - O usuário que optar em solicitar o cartão de crédito pré-pago no programa de fidelidade Anjo,
+                            automaticamente estará concordando com os termos do mesmo.</p>
+
+                        <p>17.2 - Para solicitar o cartão de credito pré-pago no programa de fidelidade Anjo é só o usuário
+                            clicar na imagem ou desenho do cartão de crédito que se encontra no site Anjo <a href="http://www.appanjo.com.br">www.appanjo.com.br</a>,
+                            onde o usuário vai ser direcionado para preencher um formulário com seu dados para fazer a solicitação
+                            do cartão de crédito pré-pago, que poderá ser no nome do usuário ou representante legal.</p>
+
+                        <p>17.3 - Após o preenchimento do formulário a plataforma Anjo ficará responsável de encaminhar e fazer
+                            todos os procedimentos necessários para realizar da solicitação do cartão de crédito pré-pago
+                            junto à empresa pague seguro.</p>
+
+                        <p>17.4 - O cartão de crédito pré-pago será entregue pela pague seguro no endereço cadastrado no formulário
+                            especifico, já mencionado acima.</p>
+
+                        <p>17.5 - Depois de receber o cartão de crédito pré-pago o usuário poderá cadastrar uma nova senha junto
+                            à empresa pague seguro.     </p>
+
+                        <p>17.6 - Os pontos disponíveis no final do ciclo de cada 30 dias poderão ser transferidos para o cartão
+                            de crédito pré-pago, direcionado para adquirir produtos ou serviços na plataforma Anjo ou doar
+                            os pontos para as escolas públicas cadastradas no sistema.     </p>
+
+                        <p>17.7 - Qualquer transação efetuada na plataforma Anjo de doação de pontos, troca ou resgate de pontos
+                            disponíveis, 1 ponto Life sempre será deduzido do total de ponto disponível da conta do usuário.
+                            Onde parte deste ponto será direcionado para ajudar familiares de jovens das comunidades.
+                        </p>
+
+                        <p>17.8<b> - Adesão ao cartão de crédito pré-pago do programa de fidelidade Anjo, para usuário menor de idade:</b>                            No caso do usuário menor de idade, ou seja, menor de 18 anos para solicitar o cartão de crédito
+                            pré-pago no programa de fidelidade anjo, o usuário poderá cadastrar os dados do seu responsável
+                            legal maior de 18 anos.</p>
+
+                        <p>17.9 - A plataforma anjo perante esta, se responsabilizará somente em fazer a solicitação e o pagamento
+                            da taxa da de emissão da primeira via do cartão de credito pré-pago junto à empresa pague seguro.
+                            Demais serviços, taxas, tarifas e entre outras em decorrência ao uso do cartão de crédito pré-pago,
+                            poderão ser cobrado ao usuário pela empresa pague seguro de acordo com o regulamento de cartão
+                            de crédito pré-pago da pague seguro.
+                        </p>
+
+                        <p>17.10 - A plataforma anjo será responsável também em fazer a transferência dos pontos Life disponíveis
+                            no final do ciclo de cada 30 dias para o cartão de crédito pré-pago do usuário, quando solicitada
+                            pelo mesmo, conforme regulamento de uso da versão Life Premium.
+                        </p>
+
+                        <p>17.11 - Para maiores informações e qualquer outro comunicado mediante ao uso do cartão de crédito
+                            pré-pago da pague seguro sobre tarifas, taxas, saques, recargas, segunda via, troca de senha
+                            e entre outros, o usuário deverá acessar o site da pague seguro a <a href="https://pagseguro.uol.com.br/"><span class="link-regulamento">https://pagseguro.uol.com.br/</span></a>
+                        </p>
+
+                        <p>18
+                            <b> - Adesão ao bônus Life Premium two ou bônus em dobro: </b>Quando o usuário completar 50 pontos
+                            Life provenientes do compartilhamento das versões Life e Life Premium, o usuário terá seus pontos
+                            do atual ciclo de 30 dias dobrado, mediante a antecipação dos seus pontos Life do mês seguinte,
+                            seguindo a contagem de pontos do mês corrente ou atual.</p>
+
+                        <p>18.1 - Para ter direito de receber o bônus Life Premium Two, o usuário terá de ser assinante da versão
+                            Life Premium.
+                        </p>
+
+                        <p>18.2 - Os pontos provenientes da versão gratuita, não serão contabilizados para adquirir o bônus
+                            Life Premium Two.
+                        </p>
+
+                        <p>18.3 - A adesão ao bônus Life Premium Two, acontecerá de forma automática sem precisar de comunicado
+                            prévio ao usuário, ou seja, completou 50 pontos Life provenientes da versão Life ou Life Premium,
+                            o usuário no mês seguinte terá seus pontos Life duplicados, mediante a antecipação dos pontos
+                            Life do mês seguintes, tendo como referência a contagem dos pontos atuais disponíveis do ciclo
+                            de 30 dias.</p>
+
+                        <p>18.4 - Qualquer transação efetuada na plataforma Anjo de doação de pontos, troca ou resgate de pontos
+                            disponíveis, 1 ponto Life sempre será deduzido do total de ponto disponível da conta do usuário.
+                            Onde parte deste ponto será direcionado para ajudar familiares de jovens das comunidades.  </p>
+
+                        <p>18.5 Dentre todas as opções incluindo resgate de pontos Life ou troca de pontos Life no programa
+                            de fidelidade Anjo, o usuário também tem a possibilidade de a qualquer momento doar seus pontos
+                            disponíveis para as escolas públicas cadastradas no sistema.  </p>
+
+                        <p>19 - Para trocar os pontos Life disponíveis por crédito no telefone, o usuário tem de estar cadastrado
+                            na versão Life ou Life Premium.</p>
+
+                        <p>19.1 - O usuário para solicitar a transferência de seus pontos disponíveis em  crédito no telefone,
+                            o mesmo terá de ter no mínimo 10 pontos Life disponíveis.</p>
+
+                        <p>19.2 - Qualquer transação efetuada na plataforma Anjo de doação de pontos, troca ou resgate de pontos
+                            Life disponíveis, 1 ponto Life sempre será deduzido do total de pontos Life disponível da conta
+                            do usuário. Onde parte deste ponto será direcionado para ajudar familiares de jovens das comunidades.
+                        </p>
+
+                        <p>19.3 - Ao clicar na imagem de trocar de pontos por crédito no telefone no site Anjo <a href="http://www.appanjo.com.br">www.appanjo.com.br</a>,
+                            o mesmo será direcionado para preencher os seus dados de registro telefônico para efetuar a transferência.
+                        </p>
+
+                        <p>20<b> - Para doar pontos para as escolas públicas cadastradas no sistema:</b> Independente da versão
+                            escolhida, o usuário da plataforma Anjo poderá doar seus pontos disponíveis a qualquer momento
+                            dentro do ciclo atual de 30 dias para escolas públicas cadastradas no sistema.
+                        </p>
+
+                        <p><b>20.1 – Mínimo de pontos para doação:</b> Para o usuário doar seus pontos, o mesmo terá de ter
+                            uma pontuação mínimo 2 pontos Life, onde 1 ponto vai para as escolas públicas cadastradas no
+                            sistema e parte do outro 1 ponto Life será direcionada para ajudar os familiares dos jovens carentes
+                            das comunidades.</p>
+
+                        <p>20.2 – Independente da quantidade de pontos disponíveis para doação, 1 ponto Life sempre será debitado
+                            do valor total dos pontos doados.</p>
+
+                        <p>20.3 – Quando o usuário apertar o botão doar pontos no app ou no site e o mesmo confirmar, os pontos
+                            serão encaminhados para site Anjo <a href="http://www.appanjo.com.br">www.appanjo.com.br</a>                            onde ficaram expostos para todos os usuário cadastrados na plataforma Anjo verificar a quantidade
+                            de pontos doados no período.</p>
+
+                        <p>20.4 – Após o prazo de 90 a 120 dias, escolheremos 3 escolas públicas cadastradas n sistema onde
+                            o app teve mais adesão e faremos uma votação entre elas, a escola mais votada receberá os pontos
+                            acumulados no período.
+                        </p>
+
+                        <p>20.5 - Os pontos serão convertidos em materiais esportivos, material de informática e cestas básica
+                            onde um aluno representante da escola ficará encarregado em direcionar os pontos dentro da sua
+                            escola.
+                        </p>
+
+                        <p>20.6 - O aluno representante da escola vencedora terá de identificar os alunos mais carentes da escola
+                            para fazer a doação das cestas básicas, mediante ao montante equivalente doado.</p>
+
+                        <p>20.7 <b>- Da votação</b>: Todos os usuários cadastrados na plataforma Anjo poderão votar na sua escola
+                             preferida, para as pessoas ou os alunos que ainda não tiverem feito o cadastro na plataforma
+                            Anjo, basta se cadastra e votar.</p>
+
+                        <p>20.8 <b>– Números de pontos de cada versão para votação</b>: Independente da versão escolhida, qualquer
+                            usuário poderá votar na sua escola de preferência, de acordo com o regulamento abaixo:
+                        </p>
+
+                        <p>
+                            A – Versão gratuita <img width="62" height="15" src="termoRegulamento_arquivos/image001.png">1
+                            ponto
+                        </p>
+
+                        <p> B – Versão Life <img width="80" height="15" src="termoRegulamento_arquivos/image002.png">4 pontos
+                        </p>
+
+                        <p> C - Versão Life Premium<img width="26" height="15" src="termoRegulamento_arquivos/image003.png">10
+                            pontos
+                        </p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <span class="btn-sair-abaixo modal-close">Fechar </span>
+                    </div>
                 </div>
+        </div>
 
-                <div class="input-field col s6">
-                  <i class="material-icons prefix">account_circle</i>
-                  <input id="NomeMae" name="NomeMae" type="text" class="validate">
-                  <label for="icon_prefix">Nome Completo da Mãe</label>
+</form>
+
+                <!-- CODIGO NOVO Danilo -->
+                <div id="divInfDadosCartaoAlimentacao" style="    visibility: hidden;
+    padding-bottom: 0px;
+    border-style: solid;
+    padding: 0;
+    width: 2%;
+    height: 1%;
+    position: relative;
+        visibility: hidden;
+    padding-bottom: 0px;
+    border-style: solid;
+    padding: 0;
+    width: 2%;
+    height: 1%;
+    position: relative;">
+                    <div class="col l6 s12" style="visibility: hidden;
+    padding-bottom: 0px;
+    border-style: solid;
+    padding: 0;
+    width: 2%;
+    height: 1%;">
+                        <h4 class="titulo-page-cartao">Tabela de Dados</h4>
+                        <div class="col l6 s12 tab-response">
+                            <table id="tblDadosPagSeguro" class="striped ">
+                                <tbody>
+                                    <tr>
+                                        <th id='thId'>ID</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thNome'>Nome</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thNomeMae'>Nome da mãe</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thSexo'>Sexo</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thCPF'>CPF</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thTelResidencial'>Telefone Residencial</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thTelCelular'>Telefone Celular</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thCidade'>Cidade</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thEstado'>Estado</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thEndereco'>Endereço</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thNumero'>Número</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thComplemento'>Complemento</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thBairro'>Bairro</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thCEP'>CEP</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thDtNascimento'>Data de Nascimento</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thMaior'>É Maior</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thEmail'>E-mail</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thSenha'>Senha</th>
+                                    </tr>
+                                    <tr>
+                                        <th id='thDtCadastro'>Data de Cadastro</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
+                <!-- FIM CODIGO NOVO-->
 
-                <!--<div class="form-group">
-                    <label for="exxampleInputFile"> File input </label>
-                    <input type="file" id="exxampleInputFile"> 
-                        <p class="help-block"> Example block-level help text here. </p>
-                </div>
-
-                <div class="ckeckbox">
-                    <label>
-                        <input type="ckeckbox"> Check me out
-                    </label>
-                </div>
-                -->
-
-              </div>
-
-              <button id="saveFormPagSeguro" type="submit" class="btn btn-default"> Salvar </button>
-              <!-- <button id="showFormPagSeguro" class="btn btn-default"> Ver dados PagSeguro </button> -->
-              <input type="button" class="btn btn-default" name="showFormPagSeguro" id="showFormPagSeguro" value="Ver dados PagSeguro">
-
-                <p>
-                    <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-                    <label for="filled-in-box">Li e estou de acordo com os termos do 
-                        <a target="_blank" href="https://pagseguro.uol.com.br/sobre/contrato-de-servicos">Contrato do PagSeguro</a></label>
-                </p>
-
-            <table id="tblDadosPagSeguro" class="striped">
-                <tr class='tblCabecarioPagSeguro'> <td>Id </td> <td> Nome </td> <td> Nome Mãe </td> </tr>
-              </table>
-
-            </form> 
-            
+    </main>
 
 
-          </div>
-        
-
-        </main>
-            
-
-        <script type="text/javascript" src="/js/lib/jquery-3.2.0.min.js"></script>
-        <script type="text/javascript" src="/js/lib/materialize.min.js"></script>
-        <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-        <script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
-        <script type="text/javascript" src="/js/anjo.js"></script>
-        <script type="text/javascript" src="/js/loginEvents.js"></script>
-        <script type="text/javascript" src="/js/login.js"></script>
-        <script type="text/javascript" src="/js/registerEvents.js"></script>
-        <script type="text/javascript" src="/js/register.js"></script>
-        <script type="text/javascript" src="/js/pagSeguroCadastro.js"></script>
+    <script type="text/javascript" src="/js/lib/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="/js/lib/materialize.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+    <script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
+    <script type="text/javascript" src="/js/anjo.js"></script>
+    <script type="text/javascript" src="/js/loginEvents.js"></script>
+    <script type="text/javascript" src="/js/login.js"></script>
+    <script type="text/javascript" src="/js/pontos.js"></script>
+    <script type="text/javascript" src="/js/cadastroCartao.js"></script>
+    <script type="text/javascript" src="/js/registerEvents.js"></script>
+    <script type="text/javascript" src="/js/register.js"></script>
+    <script type="text/javascript" src="/js/pagSeguroCadastro.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
+    <script type="text/javascript" src="/js/cadastroCartao.js"></script>
 
 
 
-    </body>
+</body>
+
 </html>

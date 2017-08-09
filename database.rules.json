@@ -61,6 +61,12 @@
         ".read": "$user_id == auth.uid"
       }
     },
+
+    "cartaoAlimentacao": {
+      ".write": true,
+      ".read": true
+    },
+
     "pagSeguroDados": {
         ".write": true,
         ".read"	: true

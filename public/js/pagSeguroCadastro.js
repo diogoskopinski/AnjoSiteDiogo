@@ -299,10 +299,57 @@ $(document).ready(function(){
 			});
 		}
 		
-
 		console.log('chegou aqui L_55 p listar');
-
 	};
-	
 	  
+});
+
+
+
+//parte cadastro cartão alimentação  -  validarDadosCadastroAlimentacao
+$("#saveFormCartaoAlimentacao").on("click", function(){
+	if(validarDadosCadastroAlimentacao()) {
+
+		var key = firebase.database().ref().push().key;	
+		console.log('L_319_CartaoAlimentacao_key cadastro: ' + key);
+
+		var bolMaior = null;
+		if($('#maiorS').prop('checked')) {
+			bolMaior = true;
+		} else if($('#maiorN').prop('checked')) {
+			bolMaior = false;
+		}
+		console.log('L_328 - bolMaior: ' + bolMaior);
+
+		var cartaoAlimentacao = {
+			nomeCompleto: 		$("#txtNomeCompleto").val(),
+			bolMaior:			bolMaior,
+			cpf:				$("#txtCpf").val(),
+			rg:					$("#txtRG").val(),
+			telefoneCelular:   	$("#txtTelCelular").val(),
+			cep:  				$("#txtCep").val(),
+			endereco:  			$("#txtEndereco").val(),
+			numero:  			$("#numNumero").val(),
+			estado:  			$("#txtEstado").val(),
+			cidade:  			$("#txtCidade").val(),
+			bairro:  			$("#txtBairro").val(),
+			complemento:  		$("#txtComplemento").val(),
+			dataCadastro:  		formataDataAtual()
+		};
+		
+
+		var updates = {};
+		updates["cartaoAlimentacao" + "/" + key] = cartaoAlimentacao;
+
+		console.log('cartaoAlimentacao_L_349: ' + updates["cartaoAlimentacao" + "/" + key]);
+		firebase.database().ref().update(updates);
+	
+		alert("Registo salvo cartao alimentação" );
+		
+		//$('.trInfPagSeguro').remove();
+		//listar(key);
+	} else {
+		return false;
+	}
+	
 });

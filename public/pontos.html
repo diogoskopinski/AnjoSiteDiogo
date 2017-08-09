@@ -5,7 +5,6 @@
         <link type="text/css" rel="stylesheet" href="/css/material-icons.css"/>
         <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
 
-        
 
         <link type="text/css" rel="stylesheet" href="/css/anjo.css"/>
         <link type="text/css" rel="stylesheet" href="/css/index.css"/>
@@ -105,9 +104,11 @@
                         <p >Doar pontos para escolas públicas cadastradas no sistema.</p>
                     </div>
 
-                    <div id="Linha1Coluna2" class="row col m6">
-                        <img class="img_pontos_trocar" src="/img/assets/alimentacao.png"/>
-                        <p >Trocar pontos por crédito no cartão alimentação.</p>
+                    <div id="Linha1Coluna2" class="row col m6"  onclick="verificaLoginCartaoAlimentacao();">
+                        <a class="black-text text-lighten-3" href="#">
+                            <img class="img_pontos_trocar" src="/img/assets/alimentacao.png"/>
+                            <p >Trocar pontos por crédito no cartão alimentação.</p>
+                        </a>
                     </div>
 
                     <div id="Linha2Coluna1" class="row col m6" onclick="verificaLoginCartao();">
