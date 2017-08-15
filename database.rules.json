@@ -63,13 +63,28 @@
     },
 
     "cartaoAlimentacao": {
-      ".write": true,
-      ".read": true
+      "$user_id": {
+        ".write": "$user_id == auth.uid",
+        ".read": "$user_id == auth.uid"
+      }
+
+      /*".write": true,
+      ".read": true */
     },
 
+"cartaoTesteAutenticado": {
+      "$user_id": {
+        ".write": "$user_id == auth.uid",
+        ".read": "$user_id == auth.uid"
+      }
+    }, 
+      
+      
     "pagSeguroDados": {
-        ".write": true,
-        ".read"	: true
+      "$user_id": {
+        ".write": "$user_id == auth.uid",
+        ".read": "$user_id == auth.uid"
+      }
     },
     "taco": {
       ".write": false,

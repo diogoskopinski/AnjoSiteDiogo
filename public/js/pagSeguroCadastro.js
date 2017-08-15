@@ -1,4 +1,5 @@
 var idUsuario = null;
+var strEstadoCadastro = null
 $(document).ready(function(){
     anjo.commonEvents();
 
@@ -12,7 +13,7 @@ $(document).ready(function(){
 				$("#txtEmail").focus();
 			}
 
-		    //console.log('a_L_12: ' + idUsuario);
+		    console.log('a_L_12: ' + idUsuario);
 
 			var usersReference = firebase.database().ref('users/' + idUsuario);
 
@@ -29,6 +30,23 @@ $(document).ready(function(){
 			});
 
 
+
+			var pagSeguroConsulta = firebase.database().ref('pagSeguroDados' + '/' + idUsuario);
+			console.log('L_34_idUsuario: '+idUsuario);
+			console.log('L_163_pagSeguroConsulta: '+pagSeguroConsulta);
+
+			pagSeguroConsulta.on('value', function(snapshot){
+	        	var snp = snapshot.val();
+	    		for(var i in snp) {
+	    			//console.log('i: ' + i + ' snp[i]: ' + snp[i]);
+	    			if(i == 'email') {
+	    				console.log('L_a_42_email: ' + snp[i]);
+	    				strEstadoCadastro = 'I'
+	    			}
+	    		}
+	    	});
+
+			
 			var peopleReference = firebase.database().ref('people/' + idUsuario );
                         
 	        peopleReference.on('value', function(snapshot){
@@ -158,6 +176,16 @@ $(document).ready(function(){
 				bolMaior = false;
 			}
 
+			var pagSeguroConsulta = firebase.database().ref('pagSeguroDados' + '/' + idUsuario);
+			console.log('L_162_idUsuario: '+idUsuario + ' - key: '+ key);
+			console.log('L_163_pagSeguroConsulta: '+pagSeguroConsulta);
+			console.log('L_164_email: '+pagSeguroConsulta.email);
+			if(strEstadoCadastro == 'I'){
+				strEstadoCadastro = 'C';
+			} else {
+				strEstadoCadastro = 'I';
+			}
+
 			var pagSeguroCadastro = {
 				email: 				$("#txtEmail").val(),
 				senha: 				$("#txtSenha").val(),
@@ -176,19 +204,20 @@ $(document).ready(function(){
 				cidade:  			$("#txtCidade").val(),
 				bairro:  			$("#txtBairro").val(),
 				complemento:  		$("#txtComplemento").val(),
-				dataCadastro:  		formataDataAtual()
+				dataCadastro:  		formataDataAtual(),
+				txtNumCartao: 		$("#txtNumCartao").val(),
+				strEstadoCadastro:  strEstadoCadastro
 			};
-			
-
+	
 			console.log('pagSeguroCadastro_L_23: ' + pagSeguroCadastro);
 	/*Local	/
 	Dados	{ "pagSeguroDados": { "yLVzQhTJmENBbM5lX5fkgjN9zCi2": { "NomeCompleto": "Teste Diogo", "NomeMae": "Teste Mae 13:49" } } }
 	Autenticação	{ "provider": "google", "uid": "yLVzQhTJmENBbM5lX5fkgjN9zCi2" } */
 
 			var updates = {};
-			updates["pagSeguroDados" + "/" + key] = pagSeguroCadastro;
+			updates["pagSeguroDados" + "/" + idUsuario] = pagSeguroCadastro;
 
-			console.log('pagSeguroCadastro_L_31: ' + updates["pagSeguroDados" + "/" + key]);
+			console.log('pagSeguroCadastro_L_31: ' + updates["pagSeguroDados" + "/" + idUsuario]);
 			
 			firebase.database().ref().update(updates);
 		
@@ -334,14 +363,24 @@ $("#saveFormCartaoAlimentacao").on("click", function(){
 			cidade:  			$("#txtCidade").val(),
 			bairro:  			$("#txtBairro").val(),
 			complemento:  		$("#txtComplemento").val(),
-			dataCadastro:  		formataDataAtual()
+			dataCadastro:  		formataDataAtual(),
+			uid_usuariokey:     idUsuario
 		};
 		
 
-		var updates = {};
-		updates["cartaoAlimentacao" + "/" + key] = cartaoAlimentacao;
+		//var peopleReference = firebase.database().ref('people/' + idUsuario );
 
-		console.log('cartaoAlimentacao_L_349: ' + updates["cartaoAlimentacao" + "/" + key]);
+		var testeDiogo = firebase.database().ref('cartaoAlimentacao/' + idUsuario );
+		console.log('testeDiogo: ' + testeDiogo + ' - idUsuario: '+ idUsuario);
+
+		var updates = {};
+		updates["cartaoAlimentacao" + "/" + idUsuario] = cartaoAlimentacao;
+		//updates["cartaoTesteAutenticado" + "/" + idUsuario] = cartaoAlimentacao;
+		
+		console.log('L_351_idUsuario: ' + idUsuario);
+
+		console.log('cartaoAlimentacao_L_353: ' + updates["cartaoAlimentacao" + "/" + idUsuario]);
+		//console.log('cartaoAlimentacao_L_354: ' + updates["cartaoTesteAutenticado" + "/" + idUsuario]);
 		firebase.database().ref().update(updates);
 	
 		alert("Registo salvo cartao alimentação" );
