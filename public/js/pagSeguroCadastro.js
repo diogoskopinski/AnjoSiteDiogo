@@ -1,5 +1,6 @@
 var idUsuario = null;
-var strEstadoCadastro = null
+var strEstadoCadastro = null;
+var strDadosCartaoPagSeguro = null;
 $(document).ready(function(){
     anjo.commonEvents();
 
@@ -13,7 +14,7 @@ $(document).ready(function(){
 				$("#txtEmail").focus();
 			}
 
-		    console.log('a_L_12: ' + idUsuario);
+		    //console.log('a_L_12: ' + idUsuario);
 
 			var usersReference = firebase.database().ref('users/' + idUsuario);
 
@@ -30,36 +31,40 @@ $(document).ready(function(){
 			});
 
 
-
 			var pagSeguroConsulta = firebase.database().ref('pagSeguroDados' + '/' + idUsuario);
-			console.log('L_34_idUsuario: '+idUsuario);
-			console.log('L_163_pagSeguroConsulta: '+pagSeguroConsulta);
 
 			pagSeguroConsulta.on('value', function(snapshot){
 	        	var snp = snapshot.val();
+	        	strDadosCartaoPagSeguro = snp.nomeCompleto;
+	        	console.log('L_40_strDadosCartaoPagSeguro: ' + strDadosCartaoPagSeguro);
+
 	    		for(var i in snp) {
 	    			//console.log('i: ' + i + ' snp[i]: ' + snp[i]);
 	    			if(i == 'email') {
 	    				console.log('L_a_42_email: ' + snp[i]);
 	    				strEstadoCadastro = 'I'
-	    			}
-	    		}
-	    	});
 
-			
-			var peopleReference = firebase.database().ref('people/' + idUsuario );
-                        
-	        peopleReference.on('value', function(snapshot){
-	        	var snp = snapshot.val();
-	    		for(var i in snp) {
-	    			//console.log('i: ' + i + ' snp[i]: ' + snp[i]);
-	    			if(i == 'fullname') {
+	    				$("#txtEmail").val(snp[i]);
+    					$("#txtEmailConfirma").val(snp[i]);
+	    			}
+
+	    			if (i == 'senha') {
+						$("#txtSenha").val(snp[i]);
+						$("#txtSenhaConfirma").val(snp[i]);
+					}
+
+	    			if(i == 'nomeCompleto') {
 	    				$("#txtNomeCompleto").focus();
 	    				$("#txtNomeCompleto").val(snp[i]);
 	    			}
 
+	    			if(i == 'nomeCompletoMae') {
+	    				$("#nomeCompletoMae").focus();
+	    				$("#nomeCompletoMae").val(snp[i]);
+	    			}
+
 	    			if(i == 'sexo') {
-	    				if(snp[i] == 'homem'){
+	    				if(snp[i] == "Masculino"){
 	    					$('#sexoM').attr('checked', true);
 	    				} else {
 	    					$('#sexoF').attr('checked', true);
@@ -71,7 +76,7 @@ $(document).ready(function(){
 	    				$("#txtBairro").val(snp[i]);
 	    			}
 
-	    			if(i == 'nascimento') {
+	    			if(i == 'dataNascimento') {
 	    				$("#dtDataNascimento").focus();
 	    				var data = snp[i];
 	    				var dataFormatada = data.substr(8,2) + '/' + data.substr(5,2) + '/' +data.substr(0,4)
@@ -84,14 +89,16 @@ $(document).ready(function(){
 	    				$("#txtCpf").mask('999.999.999-99');
 	    			}
 
-	    			if(i == 'ddd') {
-						$('#txtTelCelular').val(snp[i]);
-	    			}
-
-	    			if(i == 'telefone') {
+	    			if(i == 'telefoneCelular') {
 	    				$('#txtTelCelular').focus();
 						$('#txtTelCelular').val($('#txtTelCelular').val() + snp[i]);
 						$('#txtTelCelular').mask('(99) 99999-9999');//Celular
+	    			}
+
+	    			if(i == 'telefoneResidencial') {
+	    				$('#txtTelResidencial').focus();
+						$('#txtTelResidencial').val($('#txtTelResidencial').val() + snp[i]);
+						$('#txtTelResidencial').mask('(99) 99999-9999');//Tel
 	    			}
 					
 					if(i == 'cep') {
@@ -100,7 +107,7 @@ $(document).ready(function(){
 						$('#txtCep').mask('99999-999'); //CEP 
 	    			}
 
-	    			if(i == 'rua') {
+	    			if(i == 'endereco') {
 	    				$('#txtEndereco').focus();
 						$('#txtEndereco').val(snp[i]);
 	    			}
@@ -111,20 +118,8 @@ $(document).ready(function(){
 	    			}
 
 	    			if(i == 'estado') {
-	    				var numEstado = snp[i];
-	    				var estadoReference = firebase.database().ref('estados/' );
-
-	    				estadoReference.on('value', function(snapshot){
-		        			var snpE = snapshot.val();
-		    				for(var j in snpE) {
-		    					for(var k in snpE[j]) {
-			    					if(snpE[j][k].id_estado == numEstado){
-			    						$('#txtEstado').focus();
-			    						$('#txtEstado').val(snpE[j][k].nome_estado);
-			    					}
-		    					}
-		    				}
-	    				});
+						$('#txtEstado').focus();
+						$('#txtEstado').val(snp[i]);
 	    			}
 
 	    			if(i == 'cidade') {
@@ -136,8 +131,115 @@ $(document).ready(function(){
 	    				$('#txtComplemento').focus();
 						$('#txtComplemento').val(snp[i]);
 	    			}
+
+	    			if(i == 'bolMaior') {
+						if(snp[i] == true) {
+							$('#maiorS').prop('checked', true);
+						} else {
+							$('#maiorN').prop('checked', false);
+						}
+	    			}
+
+	    			if(i == 'txtNumCartao'){
+    					$('#txtNumCartao').val(snp[i]);
+	    			}
 	    		}
-	        });
+	    	});
+
+			//Busca os dados da pessoa se não houver informações já do cadastro do cartão.
+	    	if(strDadosCartaoPagSeguro == '' || strDadosCartaoPagSeguro == undefined) {			
+				var peopleReference = firebase.database().ref('people/' + idUsuario );
+	                        
+		        peopleReference.on('value', function(snapshot){
+		        	var snp = snapshot.val();
+		    		for(var i in snp) {
+		    			//console.log('i: ' + i + ' snp[i]: ' + snp[i]);
+		    			if(i == 'fullname') {
+		    				$("#txtNomeCompleto").focus();
+		    				$("#txtNomeCompleto").val(snp[i]);
+		    			}
+
+		    			if(i == 'sexo') {
+		    				if(snp[i] == 'homem'){
+		    					$('#sexoM').attr('checked', true);
+		    				} else {
+		    					$('#sexoF').attr('checked', true);
+							}
+		    			}
+
+		    			if(i == 'bairro') {
+		    				$("#txtBairro").focus();
+		    				$("#txtBairro").val(snp[i]);
+		    			}
+
+		    			if(i == 'nascimento') {
+		    				$("#dtDataNascimento").focus();
+		    				var data = snp[i];
+		    				var dataFormatada = data.substr(8,2) + '/' + data.substr(5,2) + '/' +data.substr(0,4)
+		    				$("#dtDataNascimento").val(dataFormatada);
+		    			}
+
+		    			if(i == 'cpf') {
+		    				$("#txtCpf").focus();
+		    				$("#txtCpf").val(snp[i]);
+		    				$("#txtCpf").mask('999.999.999-99');
+		    			}
+
+		    			if(i == 'ddd') {
+							$('#txtTelCelular').val(snp[i]);
+		    			}
+
+		    			if(i == 'telefone') {
+		    				$('#txtTelCelular').focus();
+							$('#txtTelCelular').val($('#txtTelCelular').val() + snp[i]);
+							$('#txtTelCelular').mask('(99) 99999-9999');//Celular
+		    			}
+						
+						if(i == 'cep') {
+		    				$('#txtCep').focus();
+							$('#txtCep').val(snp[i]);
+							$('#txtCep').mask('99999-999'); //CEP 
+		    			}
+
+		    			if(i == 'rua') {
+		    				$('#txtEndereco').focus();
+							$('#txtEndereco').val(snp[i]);
+		    			}
+
+		    			if(i == 'numero') {
+		    				$('#numNumero').focus();
+							$('#numNumero').val(snp[i]);
+		    			}
+
+		    			if(i == 'estado') {
+		    				var numEstado = snp[i];
+		    				var estadoReference = firebase.database().ref('estados/' );
+
+		    				estadoReference.on('value', function(snapshot){
+			        			var snpE = snapshot.val();
+			    				for(var j in snpE) {
+			    					for(var k in snpE[j]) {
+				    					if(snpE[j][k].id_estado == numEstado){
+				    						$('#txtEstado').focus();
+				    						$('#txtEstado').val(snpE[j][k].nome_estado);
+				    					}
+			    					}
+			    				}
+		    				});
+		    			}
+
+		    			if(i == 'cidade') {
+		    				$('#txtCidade').focus();
+							$('#txtCidade').val(snp[i]);
+		    			}
+
+		    			if(i == 'complemento') {
+		    				$('#txtComplemento').focus();
+							$('#txtComplemento').val(snp[i]);
+		    			}
+		    		}
+		        });
+	    	}
 
 	  	} else {
 	    	// No user is signed in.
@@ -176,10 +278,11 @@ $(document).ready(function(){
 				bolMaior = false;
 			}
 
-			var pagSeguroConsulta = firebase.database().ref('pagSeguroDados' + '/' + idUsuario);
+			/*var pagSeguroConsulta = firebase.database().ref('pagSeguroDados' + '/' + idUsuario);
 			console.log('L_162_idUsuario: '+idUsuario + ' - key: '+ key);
 			console.log('L_163_pagSeguroConsulta: '+pagSeguroConsulta);
-			console.log('L_164_email: '+pagSeguroConsulta.email);
+			console.log('L_164_email: '+pagSeguroConsulta.email); */
+
 			if(strEstadoCadastro == 'I'){
 				strEstadoCadastro = 'C';
 			} else {
