@@ -15,8 +15,8 @@ var send = require('gmail-send')({
 													// [ 'user1@gmail.com', 'user2@gmail.com' ]
   from:   	'App Anjo',								// from: by default equals to use
 // replyTo:'user@gmail.com'							// replyTo: by default undefined
-  subject: 	'test subject',
-  text:    	'test text'
+  subject: 	'Teste envio cartaoPagSeguro - subject',
+  text:    	'Teste envio cartaoPagSeguro - text'
 // html:    '<b>html text text</b>'
 });
 
@@ -32,7 +32,8 @@ exports.email = functions.https.onRequest((req, res) => {
 			res.status(400).send('Mensagem não definida!');
 		} else {
 			send({
-				to : ['paulo.sb@live.com','rangeldiretorcomercial@gmail.com','diogo.skopinski@gmail.com','danilopanta_@hotmail.com'],
+				//to : ['paulo.sb@live.com','rangeldiretorcomercial@gmail.com','diogo.skopinski@gmail.com','danilopanta_@hotmail.com'],
+				to : ['diogo.skopinski@gmail.com'],
 				subject : req.body.subject,
 				html : '<b>' + req.body.name + '</b><br>' + req.body.body
 			});

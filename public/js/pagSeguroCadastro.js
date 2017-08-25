@@ -33,15 +33,17 @@ $(document).ready(function(){
 
 			var pagSeguroConsulta = firebase.database().ref('pagSeguroDados' + '/' + idUsuario);
 
+
 			pagSeguroConsulta.on('value', function(snapshot){
 	        	var snp = snapshot.val();
 	        	strDadosCartaoPagSeguro = snp.nomeCompleto;
-	        	console.log('L_40_strDadosCartaoPagSeguro: ' + strDadosCartaoPagSeguro);
+//	        	console.log('L_39_strDadosCartaoPagSeguro: ' + strDadosCartaoPagSeguro);
+//	        	console.log('L_40_idUsuario: ' + idUsuario);
 
 	    		for(var i in snp) {
 	    			//console.log('i: ' + i + ' snp[i]: ' + snp[i]);
 	    			if(i == 'email') {
-	    				console.log('L_a_42_email: ' + snp[i]);
+	    				//console.log('L_a_42_email: ' + snp[i]);
 	    				strEstadoCadastro = 'I'
 
 	    				$("#txtEmail").val(snp[i]);
@@ -145,6 +147,9 @@ $(document).ready(function(){
 	    			}
 	    		}
 	    	});
+
+//	    	listar(idUsuario);
+	    	//console.log('L_151_chamou o listar');
 
 			//Busca os dados da pessoa se não houver informações já do cadastro do cartão.
 	    	if(strDadosCartaoPagSeguro == '' || strDadosCartaoPagSeguro == undefined) {			
@@ -251,11 +256,11 @@ $(document).ready(function(){
 	});
 
 	//Testes Diogo	
-	$("#showFormPagSeguro").on("click", function(){
+	/*$("#showFormPagSeguro").on("click", function(){
 		$('.trInfPagSeguro').remove();
 		console.log('chegou aqui L_6bbb p listar');
 		listar();
-	});
+	}); */
 	
 
 	$("#saveFormPagSeguro").on("click", function(){
@@ -327,13 +332,58 @@ $(document).ready(function(){
 			alert("Registo salvo" );
 			
 			$('.trInfPagSeguro').remove();
-			listar(key);
+			listar(idUsuario);
 		} else {
 			return false;
 		}
 		
 	});
 	
+	//Testes Diogo	envio e-mail
+	$("#btnTesteEmail").on("click", function(){
+		console.log('chegou aqui L_344 - envia e-mail');
+		emailCartao.sendMail();
+	});
+
+
+	var emailCartao = (function(){
+		var sendMail = function(){
+			var data = $('form').serializeArray();
+
+			var success = function(){
+				Materialize.toast('E-mail enviado com sucesso!' ,4000,'',function(){
+					$('form').trigger('reset');
+				});
+			};
+
+			var error = function(xhr){
+				Materialize.toast(xhr.responseText ,4000,'');
+			};
+
+			console.log('data: ' +data);
+
+			if(!data){
+				Materialize.toast('Preencha o formulario corretamente!' ,4000,'');
+			} else {
+				$.ajax({
+					url : '/email',
+	    			crossDomain: true,
+					type: 'POST',
+					data : data,
+					dataType: 'json',
+					success : success,
+					error : error
+				});
+			} 
+		};
+
+		return {
+			sendMail : sendMail
+		}
+	})();
+
+	
+
 	function listar(key){
 		console.log('key listar: ' + key);
 	
@@ -381,6 +431,8 @@ $(document).ready(function(){
 				});
 
 				console.log('table: ' + table);
+
+				emailCartao.sendMail();
 			});
 		} else {
 			$.get("https://anjosite-65d1e.firebaseio.com/pagSeguroDados.json", function(json){
@@ -427,6 +479,7 @@ $(document).ready(function(){
 					//table.append(html.join(""));
 				});
 
+				emailCartao.sendMail();
 				console.log('table: ' + table);
 			});
 		}
